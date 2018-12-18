@@ -1,13 +1,13 @@
-package com.example.scriptcraft;
+package com.ooad.scriptpro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ScriptcraftApplication {
+public class ScriptproApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ScriptcraftApplication.class, args);
+		SpringApplication.run(ScriptproApplication.class, args);
 	}
 
 }
