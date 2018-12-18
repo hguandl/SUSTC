@@ -2,711 +2,238 @@
 
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  
-  <title>Landing Page - PixelAdmin: Responsive Bootstrap Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
-  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>SUSTC - SUSTech User Script Tools Center</title>
 
-  <!-- DEMO ONLY: Function for the proper stylesheet loading according to the demo settings -->
-  <script>function _pxDemo_loadStylesheet(a,b,c){var c=c||decodeURIComponent((new RegExp(";\\s*"+encodeURIComponent("px-demo-theme")+"\\s*=\\s*([^;]+)\\s*;","g").exec(";"+document.cookie+";")||[])[1]||"clean"),d="rtl"===document.getElementsByTagName("html")[0].getAttribute("dir");document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/,'<link href="$1'+(c.indexOf("dark")!==-1&&a.indexOf("/css/")!==-1&&a.indexOf("/themes/")===-1?"-dark":"")+(!d||0!==a.indexOf("assets/css")&&0!==a.indexOf("assets/demo")?"":".rtl")+'$2" rel="stylesheet" type="text/css"'+(b?'class="'+b+'"':"")+">"))}</script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin"
+          rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <!-- DEMO ONLY: Set RTL direction -->
-  <script>"ltr"!==document.getElementsByTagName("html")[0].getAttribute("dir")&&"1"===decodeURIComponent((new RegExp(";\\s*"+encodeURIComponent("px-demo-rtl")+"\\s*=\\s*([^;]+)\\s*;","g").exec(";"+document.cookie+";")||[])[1]||"0")&&document.getElementsByTagName("html")[0].setAttribute("dir","rtl");</script>
+    <!-- DEMO ONLY: Function for the proper stylesheet loading according to the demo settings -->
+    <script>function _pxDemo_loadStylesheet(a, b, c) {
+        var c = c || decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "default"),
+            d = "rtl" === document.getElementsByTagName("html")[0].getAttribute("dir");
+        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("assets/css") && 0 !== a.indexOf("assets/demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
+    }</script>
 
-  <!-- DEMO ONLY: Load PixelAdmin core stylesheets -->
-  <script>
-    _pxDemo_loadStylesheet('assets/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
-    _pxDemo_loadStylesheet('assets/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
-  </script>
+    <!-- DEMO ONLY: Set RTL direction -->
+    <script>"ltr" !== document.getElementsByTagName("html")[0].getAttribute("dir") && "1" === decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-rtl") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "0") && document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");</script>
 
-  <!-- DEMO ONLY: Load theme -->
-  <script>
-    function _pxDemo_loadTheme(a){var b=decodeURIComponent((new RegExp(";\\s*"+encodeURIComponent("px-demo-theme")+"\\s*=\\s*([^;]+)\\s*;","g").exec(";"+document.cookie+";")||[])[1]||"clean");_pxDemo_loadStylesheet(a+b+".min.css","px-demo-stylesheet-theme",b)}
-    _pxDemo_loadTheme('assets/css/themes/');
-  </script>
+    <!-- DEMO ONLY: Load PixelAdmin core stylesheets -->
+    <script>
+        _pxDemo_loadStylesheet('assets/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
+        _pxDemo_loadStylesheet('assets/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
+    </script>
 
-  <!-- Demo assets -->
-  <script>_pxDemo_loadStylesheet('assets/demo/demo.css');</script>
-  <!-- / Demo assets -->
+    <!-- DEMO ONLY: Load theme -->
+    <script>
+        function _pxDemo_loadTheme(a) {
+            var b = decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "default");
+            _pxDemo_loadStylesheet(a + b + ".min.css", "px-demo-stylesheet-theme", b)
+        }
 
-  <script src="assets/demo/demo.js"></script>
+        _pxDemo_loadTheme('assets/css/themes/');
+    </script>
 
-  <!-- Load additional fonts -->
-  <link href="http://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
+    <!-- Demo assets -->
+    <script>_pxDemo_loadStylesheet('assets/demo/demo.css');</script>
+    <!-- / Demo assets -->
 
-  <!-- DEMO ONLY: Load widgets -->
-  <script>
-    _pxDemo_loadStylesheet('assets/css/widgets.min.css', 'px-demo-stylesheet-widgets');
-  </script>
+    <script src="assets/demo/demo.js"></script>
 
-  <!-- Landing page CSS -->
-  <link href="assets/css/landing.css" rel="stylesheet" type="text/css">
-  <link href="assets/css/landing-demo.css" rel="stylesheet" type="text/css">
+    <!-- Load additional fonts -->
+    <link href="http://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
+
+    <!-- DEMO ONLY: Load widgets -->
+    <script>
+        _pxDemo_loadStylesheet('assets/css/widgets.min.css', 'px-demo-stylesheet-widgets');
+    </script>
+
+    <!-- Landing page CSS -->
+    <link href="assets/css/landing.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/landing-demo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <!-- Navbar -->
+<!-- Navbar -->
 
-  <nav class="navbar px-navbar">
+<nav class="navbar px-navbar">
     <div class="container">
-      <div class="navbar-header">
-        <a href="#home" class="scroll-to navbar-brand px-demo-brand"><span class="px-demo-logo bg-primary" style="margin: 21px 13px 0 0"><span class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span class="px-demo-logo-9"></span></span><span class="font-size-16 font-weight-bold">PixelAdmin</span></a>
-      </div>
+        <div class="navbar-header">
+            <a href="#home" class="scroll-to navbar-brand px-demo-brand"><span class="px-demo-logo bg-primary"
+                                                                               style="margin: 21px 13px 0 0"><span
+                    class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span
+                    class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span
+                    class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span
+                    class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span
+                    class="px-demo-logo-9"></span></span><span class="font-size-16 font-weight-bold">SUSTC</span></a>
+        </div>
 
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><i class="navbar-toggle-icon"></i></button>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"
+                aria-expanded="false"><i class="navbar-toggle-icon"></i></button>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#demos" class="scroll-to">DEMOS</a></li>
-          <li><a href="#features" class="scroll-to">FEATURES</a></li>
-          <li><a href="#pricing" class="scroll-to">PRICING</a></li>
-          <li><a href="#customers" class="scroll-to">CUSTOMERS</a></li>
-          <li><a href="#about-us" class="scroll-to">ABOUT US</a></li>
-        </ul>
-      </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="signup.html">SIGN UP</a></li>
+                <li><a href="signin.html">LOGIN</a></li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <!-- Hero block -->
+<!-- Hero block -->
 
-  <a class="position-relative" name="home"></a>
-  <div id="landing-hero" class="text-xs-center clearfix">
+<a class="position-relative" name="home"></a>
+<div id="landing-hero" class="text-xs-center clearfix">
     <div class="container">
-      <!-- Header -->
-      <h1 class="font-weight-semibold">Responsive Bootstrap Template</h1>
-      <h2 class="font-weight-light">
-        Spend less time worrying about front-end and more focusing on your product
-      </h2>
+        <!-- Header -->
+        <h1 class="font-weight-semibold">SUSTech User Script Tools Center</h1>
+        <h2 class="font-weight-light">
+            Haoguandl number 1.
+        </h2>
 
-      <!-- Buttons -->
-      <div>
-        <a href="#demos" class="scroll-to btn btn-rounded btn-xl btn-primary m-x-1">Demos</a>
-        <a href="https://wrapbootstrap.com/theme/pixeladmin-responsive-admin-theme-WB07403R9" class="btn btn-xl btn-outline btn-outline-colorless-inverted btn-rounded m-x-1">
-          <span class="btn-label-icon right font-weight-bold">$12</span>Buy
-        </a>
-      </div>
+        <br><br><br>
 
-      <!-- App sample -->
-      <div class="sample">
-        <img src="assets/img/sample-img.png" alt="" class="sample-img">
-        <img src="assets/img/sample-win.png" alt="" class="sample-win">
-      </div>
+        <!-- App sample -->
+        <div class="sample">
+            <img src="assets/img/sample-img.png" alt="" class="sample-img">
+            <img src="assets/img/sample-win.png" alt="" class="sample-win">
+        </div>
     </div>
-  </div>
+</div>
 
-  <!-- Demos -->
+<!-- Team -->
 
-  <a class="position-relative" name="demos"></a>
-  <div class="landing-section">
+<a class="position-relative" name="about-us"></a>
+<div class="landing-section">
     <div class="container">
-      <h1 class="landing-heading text-xs-center">Demos</h1>
-      <h2 class="landing-subheading text-xs-center text-muted">PixelAdmin package includes three versions</h2>
+        <h1 class="landing-heading text-xs-center">The Team</h1>
+        <h2 class="landing-subheading text-muted text-xs-center">Meet our team</h2>
 
-      <div id="landing-demo-versions">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <a href="../html_demo/index.html" class="thumbnail text-default bg-white">
-              <img src="assets/img/html5-logo.png" alt="HTML5 Logo">
-              HTML5 <span class="text-muted">&rarr;</span>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="../requirejs_demo/index.html" class="thumbnail text-default bg-white">
-              <img src="assets/img/requirejs-logo.png" alt="RequireJS Logo">
-              RequireJS <span class="text-muted">&rarr;</span>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="../angular_demo/index.html" class="thumbnail text-default bg-white">
-              <img src="assets/img/angularjs-logo.png" alt="Angular Logo">
-              Angular 1.x <span class="text-muted">&rarr;</span>
-            </a>
-          </div>
 
-          <div class="clearfix"></div>
+                <div class="col-lg-2 col-lg-offset-1">
+                    <div class="landing-team panel bg-transparent">
+                        <div class="panel-body">
+                            <img class="photo" src="assets/demo/avatars/1.jpg" alt="">
+                            <p class="name">hguandl</p>
+                            <p class="post text-muted">Backend</p>
+                            <hr>
+                            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum
+                                maximus lectus eget auctor.</p>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="col-md-6">
-            <div class="box">
-              <div class="box-cell"><i class="lnr lnr-gift text-primary"></i></div>
-              <div class="box-cell p-x-3">
-                <h4>PACKAGE CONTENT</h4>
-                <p>
-                  The package contains demo and starter projects for all included versions.
-                  Also included: documentation, Bulder app, landing page and color generator.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="box">
-              <div class="box-cell"><i class="lnr lnr-code text-primary"></i></div>
-              <div class="box-cell p-x-3">
-                <h4>ANGULAR DIRECTIVES</h4>
-                <p>
-                  The package includes a set of plugins supplied with ready-to-use directives. <em>Just include and use.</em>
-                </p>
-              </div>
-            </div>
-          </div>
+                <div class="col-lg-2">
+                    <div class="landing-team panel bg-transparent">
+                        <div class="panel-body">
+                            <img class="photo" src="assets/demo/avatars/2.jpg" alt="">
+                            <p class="name">snowgy</p>
+                            <p class="post text-muted">Backend</p>
+                            <hr>
+                            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum
+                                maximus lectus eget auctor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="landing-team panel bg-transparent">
+                        <div class="panel-body">
+                            <img class="photo" src="assets/demo/avatars/3.jpg" alt="">
+                            <p class="name">YinZho</p>
+                            <p class="post text-muted">Algorithm</p>
+                            <hr>
+                            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum
+                                maximus lectus eget auctor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="landing-team panel bg-transparent">
+                        <div class="panel-body">
+                            <img class="photo" src="assets/demo/avatars/4.jpg" alt="">
+                            <p class="name">RangerX-3691</p>
+                            <p class="post text-muted">Frontend</p>
+                            <hr>
+                            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum
+                                maximus lectus eget auctor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="landing-team panel bg-transparent">
+                        <div class="panel-body">
+                            <img class="photo" src="assets/demo/avatars/5.jpg" alt="">
+                            <p class="name">Tiankai-Jiang</p>
+                            <p class="post text-muted">Frontend</p>
+                            <hr>
+                            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum
+                                maximus lectus eget auctor.</p>
+                        </div>
+                    </div>
+                </div>
         </div>
-      </div>
-
     </div>
-  </div>
+</div>
 
-  <hr class="m-a-0">
+<!-- Footer -->
 
-  <!-- Key Features -->
-
-  <a class="position-relative" name="features"></a>
-  <div class="landing-section landing-features-grid bg-white b-b-1">
-    <div class="container">
-      <h1 class="landing-heading text-xs-center">Key Features</h1>
-      <h2 class="landing-subheading text-xs-center text-muted">Build beautiful interfaces with the full-featured responsive template</h2>
-
-      <div class="row">
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-inbox"></i>
-          <h3>29 integrated plugins</h3>
-          <p>Improve user experience with a bunch of integrated plugins</p>
-        </div>
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-diamond"></i>
-          <h3>13 exclusive plugins</h3>
-          <p>Get a set of exclusive plugins that optimized for use with PixelAdmin template</p>
-        </div>
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-chart-bars"></i>
-          <h3>7 chart plugins</h3>
-          <p>Create beautiful charts using included chart libraries</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-briefcase"></i>
-          <h3>18 ready-to-use widgets</h3>
-          <p>Represent your data using universal and ready-to-use widgets</p>
-        </div>
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-heart-pulse"></i>
-          <h3>5 dashboards</h3>
-          <p>Create application dashboards with included dashboard examples</p>
-        </div>
-        <div class="col-md-4">
-          <i class="icon bg-primary lnr lnr-file-empty"></i>
-          <h3>24 pages</h3>
-          <p>Increase productivity with a set of pre-designed pages</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Other Features -->
-
-  <div class="landing-section landing-features bg-white b-b-1">
-    <div class="container">
-      <div class="col-md-7 text-xs-center text-md-left">
-        <i class="icon lnr lnr-layers text-primary"></i>
-
-        <h2 class="landing-heading">OTHER FEATURES</h2>
-        <h3 class="landing-subheading text-muted">Lorem ipsum dolor sit amet, singulis efficiendi necessitatibus qui ad</h3>
-
-        <ul class="list-group">
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Clean code base</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Crafted with modern technologies</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Built with performance in mind</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Flexible and modular code structure</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Built with mobile-first approach</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Powerful layout with responsive functionality</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Full support of RTL languages</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Light and dark color schemes</li>
-          <li class="list-group-item"><i class="list-group-icon lnr lnr-chevron-right"></i>Usage instructions for the variuous components</li>
-        </ul>
-      </div>
-
-      <!-- spacer -->
-      <div class="col-md-1 p-y-4"></div>
-
-      <div class="col-md-4">
-        <img data-src="assets/img/macbook.png" class="lazyload image pull-md-left">
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile support -->
-
-  <div class="landing-section landing-features bg-white">
-    <div class="container">
-      <div class="col-md-4 text-xs-center">
-        <img data-src="assets/img/iphone.png" class="lazyload image">
-      </div>
-
-      <!-- spacer -->
-      <div class="col-md-1 p-y-4"></div>
-
-      <div class="col-md-7">
-        <i class="icon lnr lnr-tablet text-primary text-xs-center"></i>
-
-        <h2 class="landing-heading text-xs-center">MOBILE SUPPORT</h2>
-        <h3 class="landing-subheading text-muted text-xs-center">Lorem ipsum dolor sit amet, singulis efficiendi necessitatibus qui ad</h3>
-
-        <div class="panel-group p-t-3 font-size-14" id="accordion-example">
-          <div class="panel">
-            <div class="panel-heading">
-              <a class="accordion-toggle font-size-14" data-toggle="collapse" data-parent="#accordion-example" href="#collapseOne">
-                Collapsible Group Item #1
-              </a>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, hendrerit quaerendum cu nam. Elitr sensibus incorrupte nam ex. Nusquam civibus sit ei, vel quem mucius cu. Nullam tibique an vel. Ne vix quodsi euismod, ei explicari efficiendi sea.
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-heading">
-              <a class="accordion-toggle font-size-14 collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#collapseTwo">
-                Collapsible Group Item #2
-              </a>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, hendrerit quaerendum cu nam. Elitr sensibus incorrupte nam ex. Nusquam civibus sit ei, vel quem mucius cu. Nullam tibique an vel. Ne vix quodsi euismod, ei explicari efficiendi sea.
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-heading">
-              <a class="accordion-toggle font-size-14 collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#collapseThree">
-                Collapsible Group Item #3
-              </a>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, hendrerit quaerendum cu nam. Elitr sensibus incorrupte nam ex. Nusquam civibus sit ei, vel quem mucius cu. Nullam tibique an vel. Ne vix quodsi euismod, ei explicari efficiendi sea.
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-heading">
-              <a class="accordion-toggle font-size-14 collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#collapseFour">
-                Collapsible Group Item #4
-              </a>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-              <div class="panel-body">
-                Lorem ipsum dolor sit amet, hendrerit quaerendum cu nam. Elitr sensibus incorrupte nam ex. Nusquam civibus sit ei, vel quem mucius cu. Nullam tibique an vel. Ne vix quodsi euismod, ei explicari efficiendi sea.
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Themes -->
-
-  <div class="landing-section p-b-0 bg-black clearfix">
-    <div class="container text-xs-center">
-      <h1 class="landing-heading">Themes</h1>
-      <h2 class="landing-subheading text-muted">Package includes 30 carefully crafted themes</h2>
-    </div>
-    <div id="landing-demo-themes"><div><div><img data-src="assets/img/themes.jpg" class="lazyload"><img data-src="assets/img/themes.jpg" class="lazyload"></div></div></div>
-  </div>
-
-  <!-- Builder -->
-
-  <div class="landing-section">
-    <div class="container landing-features text-xs-center">
-      <i class="icon lnr lnr-screen text-primary"></i>
-      <h1 class="landing-heading">Builder App</h1>
-      <h2 class="landing-subheading text-muted">Easily create custom bundles</h2>
-
-      <div id="landing-demo-builder">
-        <img id="demo-builder-window" data-src="assets/img/landing-builder-window.png" class="lazyload" />
-        <div id="demo-builder-frames-wrapper">
-          <div id="demo-builder-cursor"><div id="demo-builder-cursor-blink"><div></div><div></div><div></div></div><img src="assets/img/landing-builder-cursor.png"></div>
-          <img id="demo-builder-frames" data-src="assets/img/landing-builder-frames.png" class="lazyload" />
-
-          <!-- Stages -->
-          <div class="demo-builder-message stage0 bg-black hidden-xs hidden-sm">Select a destination directory.</div>
-          <div class="demo-builder-message stage1 stage2 bg-black hidden-xs hidden-sm">Select required components. All dependencies between components will be handled automatically.</div>
-          <div class="demo-builder-message stage3 bg-black hidden-xs hidden-sm">Configure build process.</div>
-          <div class="demo-builder-message stage4 stage5 bg-black hidden-xs hidden-sm">Wait while Builder installs dependencies and compiles sources...</div>
-          <div class="demo-builder-message stage6 bg-black darker hidden-xs hidden-sm"><strong>Done!</strong> Created PixelAdmin bundle contains only selected components that means lesser size and better performance!</div>
-
-          <!-- Finish -->
-          <div id="demo-builder-overlay" class="stage6 bg-black"></div>
-          <a href="#" id="demo-builder-repeat" class="stage6 bg-primary"><i class="ion-refresh"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="m-a-0">
-
-  <!-- Pricing -->
-
-  <a class="position-relative" name="pricing"></a>
-  <div class="landing-section bg-white">
-    <div class="container">
-      <h1 class="landing-heading text-xs-center">Pricing</h1>
-      <h2 class="landing-subheading text-muted text-xs-center">Pay once, get free updates forever</h2>
-
-      <div class="widget-pricing widget-pricing-simple widget-pricing-expanded">
-        <div class="widget-pricing-inner row">
-          <div class="col-md-4">
-            <div class="widget-pricing-item">
-              <h2 class="widget-pricing-plan m-a-0">SINGLE</h2>
-              <div class="widget-pricing-section p-y-2 b-y-1 bg-white darken">
-                <div class="widget-pricing-price font-size-24 font-weight-bold"><small>$</small>12</div>
-              </div>
-              <div class="widget-pricing-section font-size-15">
-                <p>Customer support</p>
-                <p>Free Updates</p>
-                <p>Limited to one client</p>
-                <p class="text-muted"><i class="lnr lnr-cross m-r-1 text-danger"></i>Multiple installation</p>
-                <p class="text-muted"><i class="lnr lnr-cross m-r-1 text-danger"></i>Resale</p>
-              </div>
-              <div class="widget-pricing-section"><a href="https://wrapbootstrap.com/theme/pixeladmin-responsive-admin-theme-WB07403R9" type="button" class="btn btn-lg btn-primary">Get It!</a></div>
-            </div>
-          </div>
-
-          <!-- spacer -->
-          <div class="p-t-3 visible-xs visible-sm"></div>
-
-          <div class="col-md-4">
-            <div class="widget-pricing-item">
-              <h2 class="widget-pricing-plan m-a-0">MULTIPLE</h2>
-              <div class="widget-pricing-section p-y-2 b-y-1 bg-white darken">
-                <div class="widget-pricing-price font-size-24 font-weight-bold"><small>$</small>60</div>
-              </div>
-              <div class="widget-pricing-section font-size-15">
-                <p>Customer support</p>
-                <p>Free Updates</p>
-                <p>Unlimited clients</p>
-                <p>Multiple installation</p>
-                <p class="text-muted"><i class="lnr lnr-cross m-r-1 text-danger"></i>Resale</p>
-              </div>
-              <div class="widget-pricing-section"><a href="https://wrapbootstrap.com/theme/pixeladmin-responsive-admin-theme-WB07403R9?l=m" type="button" class="btn btn-lg btn-primary">Get It!</a></div>
-            </div>
-          </div>
-
-          <!-- spacer -->
-          <div class="p-t-3 visible-xs visible-sm"></div>
-
-          <div class="col-md-4">
-            <div class="widget-pricing-item">
-              <h2 class="widget-pricing-plan m-a-0">EXTENDED</h2>
-              <div class="widget-pricing-section p-y-2 b-y-1 bg-white darken">
-                <div class="widget-pricing-price font-size-24 font-weight-bold"><small>$</small>800</div>
-              </div>
-              <div class="widget-pricing-section font-size-15">
-                <p>Customer support</p>
-                <p>Free Updates</p>
-                <p>Unlimited clients</p>
-                <p>Multiple installation</p>
-                <p>Resale</p>
-              </div>
-              <div class="widget-pricing-section"><a href="https://wrapbootstrap.com/theme/pixeladmin-responsive-admin-theme-WB07403R9?l=e" type="button" class="btn btn-lg btn-primary">Get It!</a></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clients -->
-
-  <a class="position-relative" name="customers"></a>
-  <div class="landing-section landing-clients bg-white">
-    <div class="container">
-      <h1 class="landing-heading text-xs-center">What Our Clients Say</h1>
-
-      <div class="owl-carousel owl-carousel-inverted">
-        <div class="landing-clients-review">
-          <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a quam ac lacus varius suscipit. Donec vitae consectetur est. Vestibulum rhoncus, libero et ornare porta, elit neque imperdiet metus, id imperdiet lorem nunc eget lorem.
-          </blockquote>
-          <footer>
-            <img src="assets/demo/avatars/2.jpg">
-            Robert Jang<br>
-            <a href="#">EXAMPLE.COM</a>
-          </footer>
-        </div>
-        <div class="landing-clients-review">
-          <blockquote>
-            Praesent viverra et nibh a volutpat. Phasellus ultrices tristique magna vitae vulputate.
-          </blockquote>
-          <footer>
-            <img src="assets/demo/avatars/3.jpg">
-            Michelle Bortz<br>
-            <a href="#">XYZ LTD.</a>
-          </footer>
-        </div>
-        <div class="landing-clients-review">
-          <blockquote>
-            Cras elementum, felis eget eleifend volutpat, urna mauris cursus orci, vitae interdum turpis arcu in erat. Donec sollicitudin scelerisque metus ac volutpat.
-          </blockquote>
-          <footer>
-            <img src="assets/demo/avatars/4.jpg">
-            Timothy Owens<br>
-            <a href="#">SITE.COM</a>
-          </footer>
-        </div>
-        <div class="landing-clients-review">
-          <blockquote>
-            Vivamus accumsan libero mi, nec aliquam mi pretium eget. Donec a ex id tortor gravida lacinia nec sit amet mauris. Sed eros erat, hendrerit sed justo id, facilisis consequat metus.
-          </blockquote>
-          <footer>
-            <img src="assets/demo/avatars/5.jpg">
-            Denise Steiner<br>
-            <a href="#">COMPANY INC.</a>
-          </footer>
-        </div>
-        <div class="landing-clients-review">
-          <blockquote>
-            Integer et metus lobortis, lacinia turpis at, consequat ante.
-          </blockquote>
-          <footer>
-            <img src="assets/demo/avatars/1.jpg">
-            John Doe<br>
-            <a href="#">ONLINE.COM</a>
-          </footer>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Client logos -->
-
-  <div class="landing-section landing-client-logos bg-white">
-    <div class="container">
-      <img src="assets/demo/customers/1.png">
-      <img src="assets/demo/customers/2.png">
-      <img src="assets/demo/customers/3.png">
-      <img src="assets/demo/customers/4.png">
-      <img src="assets/demo/customers/5.png">
-      <img src="assets/demo/customers/6.png">
-      <img src="assets/demo/customers/7.png">
-      <img src="assets/demo/customers/8.png">
-      <img src="assets/demo/customers/9.png">
-      <img src="assets/demo/customers/10.png">
-      <img src="assets/demo/customers/11.png">
-      <img src="assets/demo/customers/12.png">
-      <img src="assets/demo/customers/13.png">
-      <img src="assets/demo/customers/14.png">
-      <img src="assets/demo/customers/15.png">
-      <img src="assets/demo/customers/16.png">
-      <img src="assets/demo/customers/17.png">
-    </div>
-  </div>
-  <hr class="m-y-0">
-
-  <!-- Team -->
-
-  <a class="position-relative" name="about-us"></a>
-  <div class="landing-section">
-    <div class="container">
-      <h1 class="landing-heading text-xs-center">The Team</h1>
-      <h2 class="landing-subheading text-muted text-xs-center">Meet our team</h2>
-
-      <div class="row">
-
-        <div class="col-md-6 col-lg-3">
-          <div class="landing-team panel bg-transparent">
-            <div class="panel-body">
-              <img class="photo" src="assets/demo/avatars/5.jpg" alt="">
-              <p class="name">Denise Steiner</p>
-              <p class="post text-muted">CUSTOMER SUPPORT SPECIALIST</p>
-              <hr>
-              <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum maximus lectus eget auctor.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="landing-team panel bg-transparent">
-            <div class="panel-body">
-              <img class="photo" src="assets/demo/avatars/2.jpg" alt="">
-              <p class="name">Robert Jang</p>
-              <p class="post text-muted">FINANCIAL DIRECTOR</p>
-              <hr>
-              <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum maximus lectus eget auctor.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="landing-team panel bg-transparent">
-            <div class="panel-body">
-              <img class="photo" src="assets/demo/avatars/3.jpg" alt="">
-              <p class="name">Michelle Bortz</p>
-              <p class="post text-muted">DESIGNER</p>
-              <hr>
-              <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum maximus lectus eget auctor.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="landing-team panel bg-transparent">
-            <div class="panel-body">
-              <img class="photo" src="assets/demo/avatars/4.jpg" alt="">
-              <p class="name">Timothy Owens</p>
-              <p class="post text-muted">SENIOR ENGINEER</p>
-              <hr>
-              <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum maximus lectus eget auctor.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Social buttons -->
-
-  <div class="landing-section landing-social bg-white darker b-t-1">
-    <div class="container text-xs-center">
-      <h1 class="landing-heading">Get Social With Us</h1>
-      <h2 class="landing-subheading text-muted">Lorem ipsum dolor sit amet, singulis efficiendi necessitatibus qui ad</h2>
-
-      <a href="#" class="btn btn-primary btn-outline"><i class="fa fa-facebook"></i></a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="#" class="btn btn-primary btn-outline"><i class="fa fa-twitter"></i></a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="#" class="btn btn-primary btn-outline"><i class="fa fa-google"></i></a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="#" class="btn btn-primary btn-outline"><i class="fa fa-pinterest"></i></a>
-    </div>
-  </div>
-
-  <!-- Subscribe -->
-
-  <div class="landing-section bg-primary p-y-3">
-    <div class="container text-xs-center p-y-4">
-      <h2 class="landing-heading m-b-3">SUBSCRIBE TO OUR NEWSLETTER</h2>
-
-      <form action="" class="landing-subscribe input-group input-group-lg">
-        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-        <input type="text" class="form-control" placeholder="Your E-mail">
-        <span class="input-group-btn">
-          <button type="submit" class="btn font-weight-semibold font-size-14">SUBSCRIBE</button>
-        </span>
-      </form>
-    </div>
-  </div>
-
-  <!-- Footer -->
-
-  <div class="px-footer">
+<div class="px-footer">
     <div class="container p-t-3">
-      <div class="row">
-
-        <div class="col-sm-3">
-          <h5 class="m-t-0 m-b-1">QUICK LINKS</h5>
-          <div style="line-height: 1.7;">
-            <a href="#">About</a><br>
-            <a href="#">Home</a><br>
-            <a href="#">Blog</a><br>
-            <a href="#">Support Center</a><br>
-            <a href="#">Contact</a><br>
-            <a href="#">Terms</a><br>
-            <a href="#">Privacy</a>
-          </div>
-        </div>
-
-        <!-- spacer -->
-        <div class="m-t-4 visible-xs"></div>
-
-        <div class="col-sm-3">
-          <h5 class="m-t-0 m-b-1">CATEGORIES</h5>
-          <div style="line-height: 1.7;">
-            <a href="#">Business</a><br>
-            <a href="#">Fashion</a><br>
-            <a href="#">Featured</a><br>
-            <a href="#">Food for thought</a><br>
-            <a href="#">Gaming</a><br>
-            <a href="#">Music</a><br>
-          </div>
-        </div>
-
-        <!-- spacer -->
-        <div class="m-t-4 visible-xs"></div>
-
-        <div class="col-sm-6">
-          <h5 class="m-t-0 m-b-1">RECENT POSTS</h5>
-          <p>
-            <a href="#">Lorem ipsum dolor sit amet, consectetur</a><br>
-            <span class="text-muted font-size-11">12 MAR 2017</span>
-          </p>
-          <p>
-            <a href="#">Lorem ipsum dolor sit amet, consectetur</a><br>
-            <span class="text-muted font-size-11">12 MAR 2017</span>
-          </p>
-          <p>
-            <a href="#">Lorem ipsum dolor sit amet, consectetur</a><br>
-            <span class="text-muted font-size-11">12 MAR 2017</span>
-          </p>
-        </div>
-      </div>
-
-      <hr>
-
-      <span class="text-muted">Copyright © 2017 PixelAdmin LLC. All rights reserved.</span>
+        <span class="text-muted">Copyright © 2018 Haoguandl LTD. All rights reserved.</span>
     </div>
-  </div>
+</div>
 
-  <!-- ==============================================================================
-  |
-  |  SCRIPTS
-  |
-  =============================================================================== -->
+<!-- ==============================================================================
+|
+|  SCRIPTS
+|
+=============================================================================== -->
 
-  <!-- jQuery -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Core scripts -->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/pixeladmin.min.js"></script>
+<!-- Core scripts -->
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/pixeladmin.min.js"></script>
 
-  <!-- Landing page dependencies -->
-  <script src="assets/js/jquery.waypoints.min.js"></script>
-  <script src="assets/js/jquery.scrollTo.min.js"></script>
-  <script src="assets/js/lazysizes.min.js"></script>
+<!-- Landing page dependencies -->
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+<script src="assets/js/lazysizes.min.js"></script>
 
-  <!-- Landing page JS -->
-  <script src="assets/js/landing.js"></script>
-  <script src="assets/js/landing-demo.js"></script>
+<!-- Landing page JS -->
+<script src="assets/js/landing.js"></script>
+<script src="assets/js/landing-demo.js"></script>
 
-  <script>
+<script>
     // -------------------------------------------------------------------------
     // Initialize DEMO sidebar
 
-    $(function() {
-      pxDemo.initializeDemoSidebar();
+    $(function () {
+        pxDemo.initializeDemoSidebar();
 
-      $('#px-demo-sidebar').pxSidebar();
-      pxDemo.initializeDemo();
+        $('#px-demo-sidebar').pxSidebar();
+        pxDemo.initializeDemo();
     });
-  </script>
+</script>
 
 
-  <script>
+<script>
     // Static footer
-    $(function() {
-      $('#px-demo-footer-position').remove();
-      $('.px-footer').removeClass('px-footer-bottom px-footer-fixed');
+    $(function () {
+        $('#px-demo-footer-position').remove();
+        $('.px-footer').removeClass('px-footer-bottom px-footer-fixed');
     });
-  </script>
+</script>
 </body>
 </html>
