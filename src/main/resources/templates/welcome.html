@@ -19,7 +19,7 @@
     <script>function _pxDemo_loadStylesheet(a, b, c) {
         var c = c || decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "default"),
             d = "rtl" === document.getElementsByTagName("html")[0].getAttribute("dir");
-        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("assets/css") && 0 !== a.indexOf("assets/demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
+        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("../static/css") && 0 !== a.indexOf("../static/demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
     }</script>
 
     <!-- DEMO ONLY: Set RTL direction -->
@@ -27,8 +27,8 @@
 
     <!-- DEMO ONLY: Load PixelAdmin core stylesheets -->
     <script>
-        _pxDemo_loadStylesheet('assets/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
-        _pxDemo_loadStylesheet('assets/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
+        _pxDemo_loadStylesheet('../static/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
+        _pxDemo_loadStylesheet('../static/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
     </script>
 
     <!-- DEMO ONLY: Load theme -->
@@ -38,26 +38,26 @@
             _pxDemo_loadStylesheet(a + b + ".min.css", "px-demo-stylesheet-theme", b)
         }
 
-        _pxDemo_loadTheme('assets/css/themes/');
+        _pxDemo_loadTheme('../static/css/themes/');
     </script>
 
     <!-- Demo assets -->
-    <script>_pxDemo_loadStylesheet('assets/demo/demo.css');</script>
+    <script>_pxDemo_loadStylesheet('../static/demo/demo.css');</script>
     <!-- / Demo assets -->
 
-    <script src="assets/demo/demo.js"></script>
+    <script src="../static/demo/demo.js"></script>
 
     <!-- Load additional fonts -->
     <link href="http://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
 
     <!-- DEMO ONLY: Load widgets -->
     <script>
-        _pxDemo_loadStylesheet('assets/css/widgets.min.css', 'px-demo-stylesheet-widgets');
+        _pxDemo_loadStylesheet('../static/css/widgets.min.css', 'px-demo-stylesheet-widgets');
     </script>
 
     <!-- Landing page CSS -->
-    <link href="assets/css/landing.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/landing-demo.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/landing.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/landing-demo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!-- Navbar -->
@@ -101,8 +101,8 @@
 
         <!-- App sample -->
         <div class="sample">
-            <img src="assets/img/sample-img.png" alt="" class="sample-img">
-            <img src="assets/img/sample-win.png" alt="" class="sample-win">
+            <img src="../static/img/sample-img.png" alt="" class="sample-img">
+            <img src="../static/img/sample-win.png" alt="" class="sample-win">
         </div>
     </div>
 </div>
@@ -120,7 +120,7 @@
                 <div class="col-lg-2 col-lg-offset-1">
                     <div class="landing-team panel bg-transparent">
                         <div class="panel-body">
-                            <img class="photo" src="assets/demo/avatars/1.jpg" alt="">
+                            <img class="photo" src="../static/demo/avatars/1.jpg" alt="">
                             <p class="name">hguandl</p>
                             <p class="post text-muted">Backend</p>
                             <hr>
@@ -133,7 +133,7 @@
                 <div class="col-lg-2">
                     <div class="landing-team panel bg-transparent">
                         <div class="panel-body">
-                            <img class="photo" src="assets/demo/avatars/2.jpg" alt="">
+                            <img class="photo" src="../static/demo/avatars/2.jpg" alt="">
                             <p class="name">snowgy</p>
                             <p class="post text-muted">Backend</p>
                             <hr>
@@ -146,7 +146,7 @@
                 <div class="col-lg-2">
                     <div class="landing-team panel bg-transparent">
                         <div class="panel-body">
-                            <img class="photo" src="assets/demo/avatars/3.jpg" alt="">
+                            <img class="photo" src="../static/demo/avatars/3.jpg" alt="">
                             <p class="name">YinZho</p>
                             <p class="post text-muted">Algorithm</p>
                             <hr>
@@ -159,7 +159,7 @@
                 <div class="col-lg-2">
                     <div class="landing-team panel bg-transparent">
                         <div class="panel-body">
-                            <img class="photo" src="assets/demo/avatars/4.jpg" alt="">
+                            <img class="photo" src="../static/demo/avatars/4.jpg" alt="">
                             <p class="name">RangerX-3691</p>
                             <p class="post text-muted">Frontend</p>
                             <hr>
@@ -172,7 +172,7 @@
                 <div class="col-lg-2">
                     <div class="landing-team panel bg-transparent">
                         <div class="panel-body">
-                            <img class="photo" src="assets/demo/avatars/5.jpg" alt="">
+                            <img class="photo" src="../static/demo/avatars/5.jpg" alt="">
                             <p class="name">Tiankai-Jiang</p>
                             <p class="post text-muted">Frontend</p>
                             <hr>
@@ -203,17 +203,17 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- Core scripts -->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/pixeladmin.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/pixeladmin.min.js"></script>
 
 <!-- Landing page dependencies -->
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.scrollTo.min.js"></script>
-<script src="assets/js/lazysizes.min.js"></script>
+<script src="../static/js/jquery.waypoints.min.js"></script>
+<script src="../static/js/jquery.scrollTo.min.js"></script>
+<script src="../static/js/lazysizes.min.js"></script>
 
 <!-- Landing page JS -->
-<script src="assets/js/landing.js"></script>
-<script src="assets/js/landing-demo.js"></script>
+<script src="../static/js/landing.js"></script>
+<script src="../static/js/landing-demo.js"></script>
 
 <script>
     // -------------------------------------------------------------------------

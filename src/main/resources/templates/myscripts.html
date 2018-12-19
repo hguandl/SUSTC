@@ -19,7 +19,7 @@
     <script>function _pxDemo_loadStylesheet(a, b, c) {
         var c = c || decodeURIComponent((new RegExp(";\\s*" + encodeURIComponent("px-demo-theme") + "\\s*=\\s*([^;]+)\\s*;", "g").exec(";" + document.cookie + ";") || [])[1] || "clean"),
             d = "rtl" === document.getElementsByTagName("html")[0].getAttribute("dir");
-        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("assets/css") && 0 !== a.indexOf("assets/demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
+        document.write(a.replace(/^(.*?)((?:\.min)?\.css)$/, '<link href="$1' + (c.indexOf("dark") !== -1 && a.indexOf("/css/") !== -1 && a.indexOf("/themes/") === -1 ? "-dark" : "") + (!d || 0 !== a.indexOf("../static/css") && 0 !== a.indexOf("../static/demo") ? "" : ".rtl") + '$2" rel="stylesheet" type="text/css"' + (b ? 'class="' + b + '"' : "") + ">"))
     }</script>
 
     <!-- DEMO ONLY: Set RTL direction -->
@@ -27,9 +27,9 @@
 
     <!-- DEMO ONLY: Load PixelAdmin core stylesheets -->
     <script>
-        _pxDemo_loadStylesheet('assets/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
-        _pxDemo_loadStylesheet('assets/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
-        _pxDemo_loadStylesheet('assets/css/widgets.min.css', 'px-demo-stylesheet-widgets');
+        _pxDemo_loadStylesheet('../static/css/bootstrap.min.css', 'px-demo-stylesheet-bs');
+        _pxDemo_loadStylesheet('../static/css/pixeladmin.min.css', 'px-demo-stylesheet-core');
+        _pxDemo_loadStylesheet('../static/css/widgets.min.css', 'px-demo-stylesheet-widgets');
     </script>
 
     <!-- DEMO ONLY: Load theme -->
@@ -39,20 +39,20 @@
             _pxDemo_loadStylesheet(a + b + ".min.css", "px-demo-stylesheet-theme", b)
         }
 
-        _pxDemo_loadTheme('assets/css/themes/');
+        _pxDemo_loadTheme('../static/css/themes/');
     </script>
 
-    <!-- Demo assets -->
-    <script>_pxDemo_loadStylesheet('assets/demo/demo.css');</script>
-    <!-- / Demo assets -->
+    <!-- Demo ../static -->
+    <script>_pxDemo_loadStylesheet('../static/demo/demo.css');</script>
+    <!-- / Demo ../static -->
 
     <!-- holder.js -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
 
     <!-- Pace.js -->
-    <script src="assets/js/pace.min.js"></script>
+    <script src="../static/js/pace.min.js"></script>
 
-    <script src="assets/demo/demo.js"></script>
+    <script src="../static/demo/demo.js"></script>
 
     <!-- Custom styling -->
     <style>
@@ -232,8 +232,8 @@
 <!-- jQuery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/pixeladmin.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/pixeladmin.min.js"></script>
 
 <script>
     // -------------------------------------------------------------------------
