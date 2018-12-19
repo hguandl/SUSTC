@@ -2,7 +2,10 @@ package util.docker.config;
 
 public enum ScriptLang {
     PYTHON("python", "python3", "/data/run.py"),
-    JAVASCRIPT("javascript", "node", "/data/run.js");
+    JAVASCRIPT("javascript", "node", "/data/run.js"),
+    GO("go", "go run", "/data/run.go"),
+    PHP("php", "php", "/data/run.php"),
+    RUBY("ruby", "ruby", "/data/run.rb");
 
     private String name;
     private String bin;

@@ -87,7 +87,7 @@ public class Container {
 
     public static void main(String[] args) {
         try {
-            Container container = new Container(ScriptLang.PYTHON, 10086, null);
+            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, null);
             container.execCreateContainer();
             int ret = container.execRunContainer();
             if (ret == 0) {
