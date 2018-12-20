@@ -19,8 +19,10 @@ public class User {
     private String company;
     @Column(name="mail")
     private String mail;
-    @Column(name="nickname")
-    private String nickname;
+    @Column(name="username")
+    private String username;
+    @Column(name="password")
+    private String password;
     @Column(name="phone")
     private String phone;
 
