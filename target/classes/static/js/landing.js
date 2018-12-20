@@ -56,7 +56,7 @@ $(function() {
 
 $(function() {
   $('#landing-hero').pxResponsiveBg({
-    backgroundImage:    '../static/demo/bgs/7.jpg',
+    backgroundImage:    '../demo/bgs/7.jpg',
     backgroundPosition: 'center bottom',
     overlay:            '<div class="bg-primary darken"><div style="background:#000;opacity:.74;position:absolute;top:0;right:0;bottom:0;left:0;"></div></div>',
     overlayOpacity:     0.9,
@@ -69,7 +69,7 @@ $(function() {
 
 $(function() {
   $('.landing-clients').pxResponsiveBg({
-    backgroundImage:    '../static/demo/bgs/2.jpg',
+    backgroundImage:    '../demo/bgs/2.jpg',
     backgroundPosition: 'center bottom',
     overlay:            '<div class="bg-primary darken"><div style="background:#000;opacity:.74;position:absolute;top:0;right:0;bottom:0;left:0;"></div></div>',
     overlayOpacity:     0.65,

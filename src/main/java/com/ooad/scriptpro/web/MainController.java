@@ -5,32 +5,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
+    @GetMapping("")
+    public String welcomeControl(){
+        return "welcome";
+    }
     @GetMapping("/index")
     public String indexControl(){
-        System.out.println("call main controller");
         return "index";
     }
-    @GetMapping("/edit")
+    @GetMapping(value = {"/edit","edit.html"})
     public String editControl(){
         return "edit";
     }
-    @GetMapping("/myscripts")
+    @GetMapping(value = {"/myscripts","myscripts.html"})
     public String myscriptsControl(){
         return "myscripts";
     }
-    @GetMapping("/search")
+    @GetMapping(value = {"/search","search.html"})
     public String searchControl(){
         return "search";
     }
-    @GetMapping("/signin")
+    @GetMapping(value = {"/signin","/signin.html"})
     public String signinControl(){
         return "signin";
     }
-    @GetMapping("/signup")
+    @GetMapping(value={"/signup","/signup.html"})
     public String signupControl(){
         return "signup";
     }
-    @GetMapping("/welcome")
+    @GetMapping(value = {"/welcome","welcome.html"})
     public String infoControl(){
         return "welcome";
     }
