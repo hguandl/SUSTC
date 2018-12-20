@@ -10,4 +10,8 @@ public class MainController {
         System.out.println("call main controller");
         return "index";
     }
+    @GetMapping("/edit.html")
+    public String editControl(){
+        return "edit";
+    }
 }

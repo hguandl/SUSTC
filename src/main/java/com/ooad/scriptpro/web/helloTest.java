@@ -12,6 +12,6 @@ public class helloTest {
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
         System.out.println("call hello controller");
-        return "Hello.html";
+        return "/hellopage";
     }
 }
