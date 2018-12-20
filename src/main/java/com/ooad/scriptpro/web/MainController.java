@@ -25,14 +25,7 @@ public class MainController {
     public String searchControl(){
         return "search";
     }
-    @GetMapping(value = {"/signin","/signin.html"})
-    public String signinControl(){
-        return "signin";
-    }
-    @GetMapping(value={"/signup","/signup.html"})
-    public String signupControl(){
-        return "signup";
-    }
+
     @GetMapping(value = {"/welcome","/welcome.html"})
     public String infoControl(){
         return "welcome";

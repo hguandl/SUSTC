@@ -115,17 +115,17 @@
 
               <!-- Sign In form -->
 
-              <form action="index.html" class="p-a-4" id="page-signin-form">
+              <form action="/userLogin" method = "post" class="p-a-4" id="page-signin-form">
                 <h4 class="m-t-0 m-b-4 text-xs-center font-weight-semibold">Sign In to your Account</h4>
 
                 <fieldset class="page-signin-form-group form-group form-group-lg">
                   <div class="page-signin-icon text-muted"><i class="ion-person"></i></div>
-                  <input type="text" class="page-signin-form-control form-control" placeholder="Username or Email">
+                  <input type="text" class="page-signin-form-control form-control" placeholder="Username or Email" name = "username">
                 </fieldset>
 
                 <fieldset class="page-signin-form-group form-group form-group-lg">
                   <div class="page-signin-icon text-muted"><i class="ion-asterisk"></i></div>
-                  <input type="password" class="page-signin-form-control form-control" placeholder="Password">
+                  <input type="password" class="page-signin-form-control form-control" placeholder="Password" name = "password">
                 </fieldset>
 
                 <div class="clearfix">
