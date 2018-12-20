@@ -13,15 +13,15 @@ public class MainController {
     public String indexControl(){
         return "index";
     }
-    @GetMapping(value = {"/edit","edit.html"})
+    @GetMapping(value = {"/edit","/edit.html"})
     public String editControl(){
         return "edit";
     }
-    @GetMapping(value = {"/myscripts","myscripts.html"})
+    @GetMapping(value = {"/myscripts","/myscripts.html"})
     public String myscriptsControl(){
         return "myscripts";
     }
-    @GetMapping(value = {"/search","search.html"})
+    @GetMapping(value = {"/search","/search.html"})
     public String searchControl(){
         return "search";
     }
@@ -33,7 +33,7 @@ public class MainController {
     public String signupControl(){
         return "signup";
     }
-    @GetMapping(value = {"/welcome","welcome.html"})
+    @GetMapping(value = {"/welcome","/welcome.html"})
     public String infoControl(){
         return "welcome";
     }
