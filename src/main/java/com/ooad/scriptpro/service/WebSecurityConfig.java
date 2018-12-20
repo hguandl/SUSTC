@@ -45,13 +45,15 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
             HttpSession httpSession = request.getSession();
-
+            return true;
+            /*
             if(httpSession.getAttribute(SESSION_KEY) != null){
                 return true;
             }
             String url = "/signin";
             response.sendRedirect(url);
             return false;
+            */
 
         }
     }
