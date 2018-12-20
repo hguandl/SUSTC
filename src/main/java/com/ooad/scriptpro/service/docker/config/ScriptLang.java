@@ -1,4 +1,4 @@
-package util.docker.config;
+package com.ooad.scriptpro.service.docker.config;
 
 public enum ScriptLang {
     PYTHON("python", "python3", "/data/run.py"),

@@ -1,4 +1,4 @@
-package util;
+package com.ooad.scriptpro.util;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

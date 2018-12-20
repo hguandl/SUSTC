@@ -1,4 +1,4 @@
-package util.docker.config;
+package com.ooad.scriptpro.service.docker.config;
 
 public class WaitInfo {
     public String Error;
