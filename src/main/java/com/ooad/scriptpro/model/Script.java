@@ -47,6 +47,11 @@ public class Script {
         return id!=null && id.equals((Script)o);
     }
 
+    public void setType(Type type) {
+        this.type = type;
+    }
 
-
+    public Set<User> getUsers() {
+        return users;
+    }
 }
