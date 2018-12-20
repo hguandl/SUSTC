@@ -1,8 +1,8 @@
 package com.ooad.scriptpro.service;
 
 
-import com.sun.deploy.net.HttpResponse;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+//import com.sun.deploy.net.HttpResponse;
+//import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
@@ -22,11 +22,21 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         return new SecurityInterceptor();
     }
 
-    public void  addInterceptors(InterceptorRegistry registry){
+    public void addInterceptors(InterceptorRegistry registry){
         InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
 
         addInterceptor.excludePathPatterns("/error");
-        addInterceptor.excludePathPatterns("/login**");
+        addInterceptor.excludePathPatterns("/signin");
+
+        // Welcome page
+        addInterceptor.excludePathPatterns("/");
+        addInterceptor.excludePathPatterns("/welcome");
+
+        // Static files
+        addInterceptor.excludePathPatterns("/css/**");
+        addInterceptor.excludePathPatterns("/js/**");
+        addInterceptor.excludePathPatterns("/img/**");
+        addInterceptor.excludePathPatterns("/demo/**");
 
         addInterceptor.addPathPatterns("/**");
     }
@@ -39,7 +49,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             if(httpSession.getAttribute(SESSION_KEY) != null){
                 return true;
             }
-            String url = "/login";
+            String url = "/signin";
             response.sendRedirect(url);
             return false;
 
