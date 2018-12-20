@@ -47,15 +47,15 @@
     ];
 
     var BACKGROUNDS = [
-      '../static/demo/bgs/1.jpg',
-      '../static/demo/bgs/2.jpg',
-      '../static/demo/bgs/3.jpg',
-      '../static/demo/bgs/4.jpg',
-      '../static/demo/bgs/5.jpg',
-      '../static/demo/bgs/6.jpg',
-      '../static/demo/bgs/7.jpg',
-      '../static/demo/bgs/8.jpg',
-      '../static/demo/bgs/9.jpg',
+      '../demo/bgs/1.jpg',
+      '../demo/bgs/2.jpg',
+      '../demo/bgs/3.jpg',
+      '../demo/bgs/4.jpg',
+      '../demo/bgs/5.jpg',
+      '../demo/bgs/6.jpg',
+      '../demo/bgs/7.jpg',
+      '../demo/bgs/8.jpg',
+      '../demo/bgs/9.jpg',
     ];
 
     var THEMES = [
@@ -194,7 +194,7 @@
 
       var _isDark   = themeName.indexOf('dark') !== -1;
       var _isRtl    = document.getElementsByTagName('html')[0].getAttribute('dir') === 'rtl';
-      var themePath = '../static/css/themes/' + themeName + (_isRtl ? '.rtl' : '') + '.min.css';
+      var themePath = '../css/themes/' + themeName + (_isRtl ? '.rtl' : '') + '.min.css';
 
       var linksToLoad = [];
 
@@ -612,7 +612,7 @@
         content += '<label class="px-demo-themes-item">';
 
           content += '<input type="radio" class="px-demo-themes-toggler" name="px-demo-current-theme" value="' + THEMES[i] + '"' + (demoSettings.theme === THEMES[i] ? ' checked' : '') + '>';
-          content += '<img src="../static/demo/themes/' + THEMES[i] + '.png" class="px-demo-themes-thumbnail">';
+          content += '<img src="../demo/themes/' + THEMES[i] + '.png" class="px-demo-themes-thumbnail">';
           content += '<div class="px-demo-themes-title font-weight-semibold"><span class="text-white">' + capitalizeAllLetters(THEMES[i], '-') + '</span><div class="bg-primary"></div></div>';
 
         content += '</label>';
