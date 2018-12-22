@@ -12,14 +12,16 @@ public class IOFiles {
 //    private static final String testScript =
 //            "import time\n" + "time.sleep(30)\n";
 
-    private static final String jsScript =
-            "const fs = require('fs');\n" +
-            "fs.writeFile(\"/data/output.txt\", \"Hey there!\", function(err) {\n" +
-            "if(err) {\n" +
-            "return console.log(err);\n" +
-            "}" +
-            "console.log(\"The file was saved!\");" +
-            "});";
+//    private static final String jsScript =
+//            "const fs = require('fs');\n" +
+//            "fs.writeFile(\"/data/output.txt\", \"Hey there!\", function(err) {\n" +
+//            "if(err) {\n" +
+//            "return console.log(err);\n" +
+//            "}" +
+//            "console.log(\"The file was saved!\");" +
+//            "});";
+
+    private static final String jsScript = "console.log(233)";
 
     public static void place(int scriptID, String filePath) throws IOException {
 //        String script = getScript(scriptID);  // TODO

@@ -93,18 +93,17 @@ public class Container {
 
     public static void main(String[] args) {
         try {
-            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, null);
+            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, args);
             container.execCreateContainer();
             int ret = container.execRunContainer();
             if (ret == 0) {
-                System.out.println(container.getResult());
+//				System.out.println(container.getResult("output.txt"));
+                System.out.println(container.getOutput());
             } else {
                 System.out.println("err");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
