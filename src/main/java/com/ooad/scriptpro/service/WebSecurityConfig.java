@@ -26,7 +26,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
 
         addInterceptor.excludePathPatterns("/error");
-        addInterceptor.excludePathPatterns("/signin");
+        addInterceptor.excludePathPatterns("/login");
+        addInterceptor.excludePathPatterns("/userLogin");
+        addInterceptor.excludePathPatterns("/userHome");
 
         // Welcome page
         addInterceptor.excludePathPatterns("/");
@@ -45,11 +47,13 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
             HttpSession httpSession = request.getSession();
+            //return true;
 
             if(httpSession.getAttribute(SESSION_KEY) != null){
                 return true;
             }
-            String url = "/signin";
+            System.out.println("session not found, redirect to log in");
+            String url = "/login";
             response.sendRedirect(url);
             return false;
 

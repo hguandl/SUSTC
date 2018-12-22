@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("")
     public String welcomeControl(){
-        return "welcome";
+        return "index";
     }
     @GetMapping("/index")
     public String indexControl(){
-        return "index";
+        return "userHome";
     }
     @GetMapping(value = {"/edit","/edit.html"})
     public String editControl(){
@@ -28,6 +28,6 @@ public class MainController {
 
     @GetMapping(value = {"/welcome","/welcome.html"})
     public String infoControl(){
-        return "welcome";
+        return "index";
     }
 }
