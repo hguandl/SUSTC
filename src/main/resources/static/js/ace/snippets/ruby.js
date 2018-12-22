@@ -620,7 +620,7 @@ snippet defindex\n\
 		@${1:model_class_name} = ${2:ModelClassName}.all\n\
 \n\
 		respond_to do |wants|\n\
-			wants.html # index.html.erb\n\
+			wants.html # userHome.html.erb\n\
 			wants.xml  { render :xml => @$1s }\n\
 		end\n\
 	end${3}\n\
