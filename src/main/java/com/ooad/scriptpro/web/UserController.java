@@ -1,13 +1,12 @@
 package com.ooad.scriptpro.web;
 
 import com.ooad.scriptpro.model.User;
+import com.ooad.scriptpro.service.WebSecurityConfig;
 import com.ooad.scriptpro.service.auth.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
     @Autowired
     private LoginService loginService;
+
+    @GetMapping("/")
+    public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY)String account, Model model){
+        return "/index";
+    }
+
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     public String login(@RequestParam String username,@RequestParam String password){
         System.out.println("call log in");
@@ -26,6 +31,7 @@ public class UserController {
         boolean verify = loginService.verifyLogin(user);
         if(verify) {
             System.out.println("success");
+
             return "/index";
         } else{
             System.out.println("fail");
@@ -35,8 +41,9 @@ public class UserController {
     }
     @GetMapping(value = {"/signin","/signin.html"})
     public String signinControl(){
-        return "signin";
+        return "login";
     }
+
     @GetMapping(value={"/signup","/signup.html"})
     public String signupControl(){
         return "signup";
