@@ -1,15 +1,18 @@
 package com.ooad.scriptpro.service;
+import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
+
+import java.util.List;
+import java.util.Set;
 
 public interface UserService {
     User getUserByName(String username);
-    User getUserById(Long id);
+    User getUserById(long id);
 
-    void addUser(User user);
+    void save(User user);
 
-    void deleteUserByID(Long id);
+    void deleteUserByID(long id);
     void deleteUserByUsername(String username);
 
-    void updateUser(User user);
-
+    Set<Script> getUserScripts(User user);
 }
