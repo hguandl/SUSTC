@@ -6,6 +6,7 @@ import com.ooad.scriptpro.service.auth.LoginService;
 import javassist.tools.web.Webserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -14,13 +15,13 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     private LoginService loginService;
-    /*
-    @GetMapping("/")
-    public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY)String account){
 
-        return "index";
+    @GetMapping("/")
+    public String index(Model model, HttpSession httpSession){
+        if(httpSession.getAttribute(WebSecurityConfig.SESSION_KEY) == null)
+            return "login";
+        return "/userHome";
     }
-    */
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, HttpSession httpSession){
