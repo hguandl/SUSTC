@@ -57,6 +57,8 @@ public class Container {
         return apiPrefix + id + "/wait";
     }
 
+    private String logUrl(String id) { return apiPrefix + id + "/logs?stdout=1"; }
+
     public String execCreateContainer() throws IOException {
         String postBody = gson.toJson(config);
         String body = http.post(createUrl(), postBody);
@@ -72,8 +74,12 @@ public class Container {
         return waitInfo.StatusCode;
     }
 
-    public String getResult() throws IOException {
-        return IOFiles.read("/tmp/" + this.uuid + "/output.txt");
+    public String getResult(String filename) throws IOException {
+        return IOFiles.read("/tmp/" + this.uuid + "/" + filename);
+    }
+
+    public String getOutput() throws IOException {
+        return (new DockerLog(http.get(logUrl(this.id)))).toString();
     }
 
     private static void prune() {
@@ -87,18 +93,17 @@ public class Container {
 
     public static void main(String[] args) {
         try {
-            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, null);
+            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, args);
             container.execCreateContainer();
             int ret = container.execRunContainer();
             if (ret == 0) {
-                System.out.println(container.getResult());
+//				System.out.println(container.getResult("output.txt"));
+                System.out.println(container.getOutput());
             } else {
                 System.out.println("err");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
