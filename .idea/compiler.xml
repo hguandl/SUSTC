@@ -9,13 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SUSTC" />
       </profile>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="scriptcraft" />
-        <module name="scriptpro" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="SUSTC" target="1.8" />
@@ -25,9 +18,5 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SUSTC" options="-parameters" />
     </option>
-    <bytecodeTargetLevel>
-      <module name="scriptcraft" target="1.8" />
-      <module name="scriptpro" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
