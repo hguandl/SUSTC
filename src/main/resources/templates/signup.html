@@ -100,27 +100,27 @@
           <div class="font-size-15 m-t-1 line-height-1">Simple. Flexible. Powerful.</div>
         </div>
 
-        <form action="userHome.html" class="p-a-4">
+        <form action="/userSignup" class="p-a-4" method = "POST">
           <h4 class="m-t-0 m-b-4 text-xs-center font-weight-semibold">Create an Account</h4>
 
           <fieldset class="page-signup-form-group form-group form-group-lg">
             <div class="page-signup-icon text-muted"><i class="ion-information-circled"></i></div>
-            <input type="text" class="page-signup-form-control form-control" placeholder="Full Name">
+            <input type="text" class="page-signup-form-control form-control" placeholder="Full Name" name = "fullName">
           </fieldset>
 
           <fieldset class="page-signup-form-group form-group form-group-lg">
             <div class="page-signup-icon text-muted"><i class="ion-at"></i></div>
-            <input type="email" class="page-signup-form-control form-control" placeholder="Email">
+            <input type="email" class="page-signup-form-control form-control" placeholder="Email" name = "email">
           </fieldset>
 
           <fieldset class="page-signup-form-group form-group form-group-lg">
             <div class="page-signup-icon text-muted"><i class="ion-person"></i></div>
-            <input type="text" class="page-signup-form-control form-control" placeholder="Username">
+            <input type="text" class="page-signup-form-control form-control" placeholder="Username" name = "userName">
           </fieldset>
 
           <fieldset class="page-signup-form-group form-group form-group-lg">
             <div class="page-signup-icon text-muted"><i class="ion-asterisk"></i></div>
-            <input type="password" class="page-signup-form-control form-control" placeholder="Password">
+            <input type="password" class="page-signup-form-control form-control" placeholder="Password" name = "password">
             <small class="text-muted">Minimum 6 characters</small>
           </fieldset>
 

@@ -1,5 +1,7 @@
 package com.ooad.scriptpro.model;
 
+import lombok.AccessLevel;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,9 +14,14 @@ import java.util.Set;
 @Setter
 @Table(name="users")
 public class User {
+
     @Id
     @Column(name="id")
+    @Setter(AccessLevel.NONE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     @Column(name="company")
     private String company;
     @Column(name="mail")

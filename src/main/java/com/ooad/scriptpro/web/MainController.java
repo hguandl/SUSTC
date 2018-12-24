@@ -9,10 +9,7 @@ public class MainController {
     public String welcomeControl(){
         return "index";
     }
-    @GetMapping("/index")
-    public String indexControl(){
-        return "userHome";
-    }
+
     @GetMapping(value = {"/edit","/edit.html"})
     public String editControl(){
         return "edit";
@@ -26,7 +23,7 @@ public class MainController {
         return "search";
     }
 
-    @GetMapping(value = {"/welcome","/welcome.html"})
+    @GetMapping(value = {"/index","/welcome","/welcome.html"})
     public String infoControl(){
         return "index";
     }
