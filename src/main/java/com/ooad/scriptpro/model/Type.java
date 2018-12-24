@@ -14,6 +14,7 @@ import java.util.List;
 public class Type {
     @Id
     @Column(name="type_id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long type_id;
 
     @Column(name="name")

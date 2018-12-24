@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class ScriptUser {
     @Id
     @Column(name="user_id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int user_id;
 
     @Id

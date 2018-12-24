@@ -26,7 +26,8 @@ public class User {
     private String company;
     @Column(name="mail")
     private String mail;
-    @Column(name="username")
+
+    @Column(name="username", unique = true)
     private String username;
     @Column(name="password")
     private String password;
