@@ -3,7 +3,9 @@ package com.ooad.scriptpro.service;
 import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.model.Script;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ScriptServiceImpl implements ScriptService {
     @Autowired
     ScriptRepository scriptRepository;

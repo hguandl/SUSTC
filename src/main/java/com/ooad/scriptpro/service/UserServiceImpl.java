@@ -4,10 +4,12 @@ import com.ooad.scriptpro.api.UserRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepository;
