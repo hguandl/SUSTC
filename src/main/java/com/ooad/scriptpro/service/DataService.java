@@ -5,7 +5,7 @@ import com.ooad.scriptpro.api.UserRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.Type;
 import com.ooad.scriptpro.model.User;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+//import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

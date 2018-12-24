@@ -24,13 +24,18 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model, HttpSession httpSession){
-        if(httpSession.getAttribute(WebSecurityConfig.SESSION_KEY) == null)
+        if(httpSession.getAttribute(WebSecurityConfig.SESSION_KEY) == null){
+            model.addAttribute("message","");
             return "login";
+        }
         return "/userHome";
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public String login(@RequestParam String username, @RequestParam String password, HttpSession httpSession){
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        HttpSession httpSession,
+                        Model model){
         System.out.println("call log in");
         System.out.println(username+"  "+password);
         User user = new User();
@@ -44,6 +49,8 @@ public class UserController {
             return "/userHome";
         } else{
             System.out.println("fail");
+            model.addAttribute("message","Invalid Credential");
+
             return "/login";
         }
 
@@ -54,6 +61,7 @@ public class UserController {
     }
     @GetMapping(value = {"/login","/login.html"})
     public String signinControl(){
+        //model.addAttribute("message","")
         return "login";
     }
 
@@ -62,16 +70,18 @@ public class UserController {
         return "signup";
     }
     @GetMapping(value = {"/logout","/logout.html"})
-    public String logout(HttpSession session){
+    public String logout(HttpSession session)
+    {
         session.removeAttribute(WebSecurityConfig.SESSION_KEY);
-        return "redirect:/login";
+        return "redirect:/index";
     }
     @PostMapping(value = {"/userSignup"})
     public String signup(@RequestParam String fullName,
                          @RequestParam String email,
                          @RequestParam String userName,
                          @RequestParam String password,
-                         HttpSession httpSession){
+                         HttpSession httpSession,
+                         Model model){
         System.out.println(fullName);
         System.out.println(email);
         System.out.println(userName);
@@ -91,6 +101,7 @@ public class UserController {
         } catch (Exception e){
             System.out.println("fail");
             e.printStackTrace();
+
             return "/login";
         }
         /*
