@@ -101,8 +101,8 @@ public class UserController {
         } catch (Exception e){
             System.out.println("fail");
             e.printStackTrace();
-
-            return "/login";
+            model.addAttribute("message","User already exists!");
+            return "/signup";
         }
         /*
         if(signupService.signupUser(user)){

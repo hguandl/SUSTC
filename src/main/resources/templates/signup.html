@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -133,8 +133,8 @@
           <button type="submit" class="btn btn-block btn-lg btn-primary m-t-3">Sign Up</button>
         </form>
 
-        <div class="p-y-3 p-x-4 b-t-1 bg-white darken">
-          <a href="userHome.html" class="btn btn-block btn-lg btn-info font-size-13" style="background-color: #003F43; border-color: #003F43"><!-- <span class="btn-label-icon left" ></span> -->Sign Up with <strong>CAS</strong></a>
+        <div class="p-y-3 p-x-4 b-t-1 bg-white darken" style="text-align: center">
+          <strong th:text="${message}" style="color: #ff3009;"></strong>
         </div>
       </div>
 
