@@ -29,7 +29,8 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         addInterceptor.excludePathPatterns("/login");
         addInterceptor.excludePathPatterns("/userLogin");
         addInterceptor.excludePathPatterns("/userHome");
-
+        addInterceptor.excludePathPatterns("/signup");
+        addInterceptor.excludePathPatterns("/userSignup");
         // Welcome page
         addInterceptor.excludePathPatterns("/");
         addInterceptor.excludePathPatterns("/welcome");
@@ -39,6 +40,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         addInterceptor.excludePathPatterns("/js/**");
         addInterceptor.excludePathPatterns("/img/**");
         addInterceptor.excludePathPatterns("/demo/**");
+        addInterceptor.excludePathPatterns("/static/**");
 
         addInterceptor.addPathPatterns("/**");
     }

@@ -1,8 +1,10 @@
 package com.ooad.scriptpro.web;
 
+import com.ooad.scriptpro.api.UserRepository;
 import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.WebSecurityConfig;
 import com.ooad.scriptpro.service.auth.LoginService;
+import com.ooad.scriptpro.service.auth.SignupService;
 import javassist.tools.web.Webserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,10 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private SignupService signupService;
+    @Autowired
+    private UserRepository userDao;
 
     @GetMapping("/")
     public String index(Model model, HttpSession httpSession){
@@ -38,11 +44,14 @@ public class UserController {
             return "/userHome";
         } else{
             System.out.println("fail");
-            return "/index";
+            return "/login";
         }
 
     }
-
+    @GetMapping(value = {"userHome"})
+    public String userHome(){
+        return "/userHome";
+    }
     @GetMapping(value = {"/login","/login.html"})
     public String signinControl(){
         return "login";
@@ -56,5 +65,43 @@ public class UserController {
     public String logout(HttpSession session){
         session.removeAttribute(WebSecurityConfig.SESSION_KEY);
         return "redirect:/login";
+    }
+    @PostMapping(value = {"/userSignup"})
+    public String signup(@RequestParam String fullName,
+                         @RequestParam String email,
+                         @RequestParam String userName,
+                         @RequestParam String password,
+                         HttpSession httpSession){
+        System.out.println(fullName);
+        System.out.println(email);
+        System.out.println(userName);
+        System.out.println(password);
+        User user = new User();
+        user.setUsername(userName);
+        user.setPassword(password);
+        user.setMail(email);
+        user.setPhone("13423");
+        //user.setNickname("sdfsf");
+        System.out.println(" sign up user, username: "+user.getUsername()+"  password: "+user.getPassword());
+        try{
+            userDao.save(user);
+            System.out.println("success");
+            httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, userName);
+            return "/userHome";
+        } catch (Exception e){
+            System.out.println("fail");
+            e.printStackTrace();
+            return "/login";
+        }
+        /*
+        if(signupService.signupUser(user)){
+            System.out.println("success");
+            httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, userName);
+            return "/userHome";
+        } else{
+            System.out.println("fail");
+            return "/login";
+        }
+        */
     }
 }
