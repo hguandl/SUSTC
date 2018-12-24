@@ -10,12 +10,32 @@ public class SignupService {
     @Autowired
     UserRepository userRepository;
 
+    private String message;
+
     public boolean signupUser(User user){
         try{
-            userRepository.save(user);
-            return true;
+            User _user = userRepository.findUserByUsername(user.getUsername());
+            if(_user == null){
+                userRepository.save(user);
+                setMessage("sign up success");
+                return true;
+            }
+            else{
+                setMessage("please use another username");
+                return false;
+            }
+
         }catch (Exception e){
+            setMessage("unknown error");
             return false;
         }
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
     }
 }
