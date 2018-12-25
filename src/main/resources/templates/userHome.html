@@ -156,7 +156,12 @@
                 <!--top scripts list-->
                 <div class="col-md-12" th:each="each:${topScripts}">
                     <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
+                        <hr size="6" width="100%" align="left" class="bg-warning" th:style="${each.type.type_id == 1 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-danger" th:style="${each.type.type_id == 2 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-info " th:style="${each.type.type_id == 3 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-primary " th:style="${each.type.type_id == 4 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-black " th:style="${each.type.type_id == 5 ? 'display:block' : 'display:none'}">
+
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
@@ -194,7 +199,11 @@
                 <!-- most recent scripts -->
                 <div class="col-md-12" th:each="each:${recentScripts}">
                     <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
+                        <hr size="6" width="100%" align="left" class="bg-warning" th:style="${each.type.type_id == 1 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-danger" th:style="${each.type.type_id == 2 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-info " th:style="${each.type.type_id == 3 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-primary " th:style="${each.type.type_id == 4 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-black " th:style="${each.type.type_id == 5 ? 'display:block' : 'display:none'}">
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
