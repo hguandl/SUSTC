@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -93,8 +93,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">
                     <img src="demo/avatars/1.jpg" alt="" class="px-navbar-image">
-                    <span class="hidden-md">John Doe</span>
-                    <!--<span th:text="${user.username}" class="hidden-md">Anonymous</span>-->
+                    <!--<span class="hidden-md">John Doe</span>
+                    --><span th:text="${user.username}" class="hidden-md">Anonymous</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="pages-profile-v2.html"><span class="label label-warning pull-xs-right"><i
@@ -127,7 +127,8 @@
             <hr class="page-wide-block visible-xs visible-sm">
 
             <div class="col-xs-12 width-md-auto width-lg-auto width-xl-auto pull-md-right">
-                <a href="./edit.html" class="btn btn-primary btn-block"><span class="btn-label-icon left ion-plus-round"></span>Create
+                <a href="./edit.html" class="btn btn-primary btn-block"><span
+                        class="btn-label-icon left ion-plus-round"></span>Create
                     project</a>
             </div>
 
@@ -151,15 +152,33 @@
                 <div class="panel-title">
                     <i class="panel-title-icon ion-fireball font-size-16 text-primary"></i> Top Scripts
                 </div>
-                <div class="col-md-12">
+
+
+                <!--top scripts list-->
+                <div class="col-md-12" th:each="each:${topScripts}">
                     <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
+                        <hr size="6" width="100%" align="left" class="bg-warning"
+                            th:style="${each.type.type_id == 1 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-danger"
+                            th:style="${each.type.type_id == 2 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-info "
+                            th:style="${each.type.type_id == 3 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-primary "
+                            th:style="${each.type.type_id == 4 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-black "
+                            th:style="${each.type.type_id == 5 ? 'display:block' : 'display:none'}">
+
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 1</div>
+                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}" th:href="@{'/info?sid=' + ${each.id}}">
+                                    Script 1
+                                </a>
+
                                 <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+
+                                <div class="pull-xs-left" th:text="'Last updated: '+  ${each.createTime}">Lorem ipsum
+                                    dolor sit amet, consectetur adipiscing elit, sed
                                     do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </div>
 
@@ -167,72 +186,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 2</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-info">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 3</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-black">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 4</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-danger">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 5</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
+
         <!-- / Top -->
 
         <!-- Recent -->
@@ -241,16 +200,31 @@
                 <div class="panel-title">
                     <i class="panel-title-icon ion-ios-cloud-upload font-size-16 text-primary"></i> Recent Uploaded
                 </div>
-
-                <div class="col-md-12">
+                <!-- most recent scripts -->
+                <div class="col-md-12" th:each="each:${recentScripts}">
                     <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
+                        <hr size="6" width="100%" align="left" class="bg-warning"
+                            th:style="${each.type.type_id == 1 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-danger"
+                            th:style="${each.type.type_id == 2 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-info "
+                            th:style="${each.type.type_id == 3 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-primary "
+                            th:style="${each.type.type_id == 4 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-black "
+                            th:style="${each.type.type_id == 5 ? 'display:block' : 'display:none'}">
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 1</div>
+                                <!--<div th:id="'ru' + ${each.id}" ></div>-->
+                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}" th:href="@{'/info?sid=' + ${each.id}}">
+                                    Script 1
+                                </a>
+
                                 <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+
+                                <div class="pull-xs-left" th:text="'Last updated: '+  ${each.createTime}">Lorem ipsum
+                                    dolor sit amet, consectetur adipiscing elit, sed
                                     do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </div>
 
@@ -258,70 +232,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-success">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 2</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-info">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 3</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-success">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 4</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-black">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 5</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -329,54 +240,54 @@
 
         <!-- Friends -->
         <!--<div class="col-md-4">-->
-            <!--<div class="panel clearfix text-default">-->
-                <!--<div class="panel-title">-->
-                    <!--<i class="panel-title-icon ion-ios-people font-size-16 text-primary"></i> Friends-->
-                <!--</div>-->
+        <!--<div class="panel clearfix text-default">-->
+        <!--<div class="panel-title">-->
+        <!--<i class="panel-title-icon ion-ios-people font-size-16 text-primary"></i> Friends-->
+        <!--</div>-->
 
-                <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
-                    <!--<div class="box-cell valign-middle" style="width: 54px;">-->
-                        <!--<i class="fa fa-cc-visa text-muted font-size-28"></i>-->
-                    <!--</div>-->
-                    <!--<div class="box-cell">-->
-                        <!--<div class="pull-xs-right font-size-18">-->
-                            <!--<small class="font-size-13">$</small>-->
-                            <!--<strong>5,312</strong></div>-->
-                        <!--<div class="font-size-15">Salary card <span-->
-                                <!--class="text-muted font-size-12">- Bank of America</span></div>-->
-                        <!--<div class="text-muted font-size-14">**** **** **** 1313</div>-->
-                    <!--</div>-->
-                <!--</a>-->
+        <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
+        <!--<div class="box-cell valign-middle" style="width: 54px;">-->
+        <!--<i class="fa fa-cc-visa text-muted font-size-28"></i>-->
+        <!--</div>-->
+        <!--<div class="box-cell">-->
+        <!--<div class="pull-xs-right font-size-18">-->
+        <!--<small class="font-size-13">$</small>-->
+        <!--<strong>5,312</strong></div>-->
+        <!--<div class="font-size-15">Salary card <span-->
+        <!--class="text-muted font-size-12">- Bank of America</span></div>-->
+        <!--<div class="text-muted font-size-14">**** **** **** 1313</div>-->
+        <!--</div>-->
+        <!--</a>-->
 
-                <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
-                    <!--<div class="box-cell valign-middle" style="width: 54px;">-->
-                        <!--<i class="fa fa-cc-amex text-muted font-size-28"></i>-->
-                    <!--</div>-->
-                    <!--<div class="box-cell">-->
-                        <!--<div class="pull-xs-right font-size-18">-->
-                            <!--<small class="font-size-13">$</small>-->
-                            <!--<strong>2,150</strong></div>-->
-                        <!--<div class="font-size-15">Shopping card <span class="text-muted font-size-12">- Citigroup</span>-->
-                        <!--</div>-->
-                        <!--<div class="text-muted font-size-14">**** **** **** 3266</div>-->
-                    <!--</div>-->
-                <!--</a>-->
+        <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
+        <!--<div class="box-cell valign-middle" style="width: 54px;">-->
+        <!--<i class="fa fa-cc-amex text-muted font-size-28"></i>-->
+        <!--</div>-->
+        <!--<div class="box-cell">-->
+        <!--<div class="pull-xs-right font-size-18">-->
+        <!--<small class="font-size-13">$</small>-->
+        <!--<strong>2,150</strong></div>-->
+        <!--<div class="font-size-15">Shopping card <span class="text-muted font-size-12">- Citigroup</span>-->
+        <!--</div>-->
+        <!--<div class="text-muted font-size-14">**** **** **** 3266</div>-->
+        <!--</div>-->
+        <!--</a>-->
 
-                <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
-                    <!--<div class="box-cell valign-middle" style="width: 54px;">-->
-                        <!--<i class="fa fa-cc-mastercard text-muted font-size-28"></i>-->
-                    <!--</div>-->
-                    <!--<div class="box-cell">-->
-                        <!--<div class="pull-xs-right font-size-18">-->
-                            <!--<small class="font-size-13">$</small>-->
-                            <!--<strong>6,454</strong></div>-->
-                        <!--<div class="font-size-15">Funded card <span class="text-muted font-size-12">- J.P.Morgan Chase & Co</span>-->
-                        <!--</div>-->
-                        <!--<div class="text-muted font-size-14">**** **** **** 6295</div>-->
-                    <!--</div>-->
-                <!--</a>-->
+        <!--<a href="#" class="box m-a-0 p-x-3 p-y-2 b-t-1 bg-white">-->
+        <!--<div class="box-cell valign-middle" style="width: 54px;">-->
+        <!--<i class="fa fa-cc-mastercard text-muted font-size-28"></i>-->
+        <!--</div>-->
+        <!--<div class="box-cell">-->
+        <!--<div class="pull-xs-right font-size-18">-->
+        <!--<small class="font-size-13">$</small>-->
+        <!--<strong>6,454</strong></div>-->
+        <!--<div class="font-size-15">Funded card <span class="text-muted font-size-12">- J.P.Morgan Chase & Co</span>-->
+        <!--</div>-->
+        <!--<div class="text-muted font-size-14">**** **** **** 6295</div>-->
+        <!--</div>-->
+        <!--</a>-->
 
-            <!--</div>-->
+        <!--</div>-->
         <!--</div>-->
         <!-- / Friends -->
     </div>
