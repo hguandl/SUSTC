@@ -3,14 +3,20 @@ package com.ooad.scriptpro.util;
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.ScriptServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
+@Service
 public class IOFiles {
+    private static ScriptService scriptService;
+
     @Autowired
-    static ScriptService scriptService;
+    public IOFiles(ScriptService scriptService) {
+        IOFiles.scriptService = scriptService;
+    }
 
     public static void place(int scriptID, String filePath) throws IOException, SQLException {
         String script = scriptService.getScriptContentById(scriptID);

@@ -82,6 +82,7 @@ public class ScriptServiceImpl implements ScriptService {
             sb.append("\n");
             line = br.readLine();
         }
+        br.close();
         return sb.toString();
     }
 }
