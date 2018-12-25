@@ -1,21 +1,55 @@
 package com.ooad.scriptpro.service;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.thymeleaf.util.DateUtils;
 import sun.nio.ch.IOUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 @Service
 public class FileService {
+    public String upload(MultipartFile uploadFile) throws  IOException {
+        if(uploadFile!=null){
+            try{
+                String fileName = uploadFile.getOriginalFilename();
+                String filePath = "/tmp/scripts";
+                File file = new File(filePath);
+                if(!file.exists()){
+                    file.mkdirs();
+                }
+                file = new File(filePath, fileName);
+                boolean isCreateSuccess = file.createNewFile();
+                if(isCreateSuccess){
+                    uploadFile.transferTo(file);
+                }
+                FileReader reader = new FileReader(file);
+                BufferedReader bReader = new BufferedReader(reader);
+                StringBuilder sb = new StringBuilder();
+                String s = "";
+                while ((s =bReader.readLine()) != null) {
+                    sb.append(s + "\n");
 
+                }
+                bReader.close();
+                String str = sb.toString();
+                return str;
+            }catch (Exception e){
+
+                e.printStackTrace();
+                return "";
+            }
+        }else{
+            return "";
+        }
+    }
+    /*
     public String upload(MultipartFile uploadFile) throws IOException {
         String folder = "/tmp/scripts/";
         InputStream fis = null;
@@ -45,6 +79,8 @@ public class FileService {
             }
         }
     }
+    */
+
     public void download(HttpServletRequest request, HttpServletResponse response){
         //todo
     }

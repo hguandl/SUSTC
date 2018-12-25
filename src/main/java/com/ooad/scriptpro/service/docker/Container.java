@@ -13,6 +13,8 @@ import java.util.UUID;
 
 import com.ooad.scriptpro.util.Http;
 import com.ooad.scriptpro.util.IOFiles;
+import org.springframework.stereotype.Service;
+
 
 public class Container {
     private static Gson gson = new Gson();
