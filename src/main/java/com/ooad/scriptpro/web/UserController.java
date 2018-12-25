@@ -28,7 +28,7 @@ public class UserController {
             model.addAttribute("message","");
             return "login";
         }
-        return "/userHome";
+        return "redirect:/userHome";
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
@@ -46,7 +46,7 @@ public class UserController {
         if(verify) {
             System.out.println("success");
             httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, username);
-            return "/userHome";
+            return "redirect:/userHome";
         } else{
             System.out.println("fail");
             model.addAttribute("message","Invalid Credential");
@@ -70,8 +70,7 @@ public class UserController {
         return "signup";
     }
     @GetMapping(value = {"/logout","/logout.html"})
-    public String logout(HttpSession session)
-    {
+    public String logout(HttpSession session) {
         session.removeAttribute(WebSecurityConfig.SESSION_KEY);
         return "redirect:/index";
     }
@@ -97,7 +96,7 @@ public class UserController {
             userDao.save(user);
             System.out.println("success");
             httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, userName);
-            return "/userHome";
+            return "redirect:/userHome";
         } catch (Exception e){
             System.out.println("fail");
             e.printStackTrace();
