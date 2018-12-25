@@ -75,7 +75,50 @@
 <body>
 <nav class="px-nav px-nav-left sidebar"></nav>
 
-<nav class="navbar px-navbar header"></nav>
+<nav class="navbar px-navbar">
+    <!-- Header -->
+    <div class="navbar-header">
+        <a class="navbar-brand px-demo-brand" href="../index"><span class="px-demo-logo bg-primary"><span
+                class="px-demo-logo-1"></span><span class="px-demo-logo-2"></span><span
+                class="px-demo-logo-3"></span><span class="px-demo-logo-4"></span><span
+                class="px-demo-logo-5"></span><span class="px-demo-logo-6"></span><span
+                class="px-demo-logo-7"></span><span class="px-demo-logo-8"></span><span
+                class="px-demo-logo-9"></span></span>SUSTC</a>
+    </div>
+
+    <!-- Navbar togglers -->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#px-demo-navbar-collapse"
+            aria-expanded="false"><i class="navbar-toggle-icon"></i></button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="px-demo-navbar-collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="demo/avatars/1.jpg" alt="" class="px-navbar-image">
+                    <span class="hidden-md">John Doe</span>
+                    <!--<span th:text="${user.username}" class="hidden-md">Anonymous</span>-->
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="pages-profile-v2.html"><span class="label label-warning pull-xs-right"><i
+                            class="fa fa-asterisk"></i></span>Profile</a></li>
+                    <li><a href="pages-account.html">Account</a></li>
+                    <li><a href="pages-messages-list.html"><i class="dropdown-icon fa fa-envelope"></i>&nbsp;&nbsp;Messages</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
 
 <div class="px-content">
     <ol class="breadcrumb page-breadcrumb">
@@ -270,7 +313,7 @@
     // Initialize DEMO
 
     $(function () {
-        $('.header').load("header.html");
+        // $('.header').load("header.html");
         $('.sidebar').load("sidebar.html");
 
         var file = String(document.location).split('/').pop();
