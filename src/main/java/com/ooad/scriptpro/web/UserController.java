@@ -36,18 +36,19 @@ public class UserController {
     public String login(@RequestParam String username,
                         @RequestParam String password,
                         HttpSession httpSession,
-                        Model model,
-                        RedirectAttributes redirectAttributes){
+                        Model model){
         System.out.println("call log in");
         System.out.println(username+"  "+password);
-        User user = userDao.findUserByUsername(username);
-        System.out.println("username: "+user.getUsername()+"  password: "+user.getPassword());
-        boolean verify = loginService.verifyLogin(user);
+        User tempuser = new User();
+        tempuser.setPassword(password);
+        tempuser.setUsername(username);
+
+        System.out.println("username: "+username+"  password: "+password);
+        boolean verify = loginService.verifyLogin(tempuser);
         if(verify) {
             System.out.println("success");
             httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, username);
-            httpSession.setAttribute("user",user);
-            redirectAttributes.addAttribute("user",user);
+            httpSession.setAttribute("user",userDao.findUserByUsername(username));
             return "redirect:/userHome";
         } else{
             System.out.println("fail");

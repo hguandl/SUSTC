@@ -151,15 +151,20 @@
                 <div class="panel-title">
                     <i class="panel-title-icon ion-fireball font-size-16 text-primary"></i> Top Scripts
                 </div>
-                <div class="col-md-12">
+
+
+                <!--top scripts list-->
+                <div class="col-md-12" th:each="each:${topScripts}">
                     <div class="box">
                         <hr size="6" width="100%" align="left" class="bg-warning">
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 1</div>
+                                <div class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}">Script 1</div>
+
                                 <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+
+                                <div class="pull-xs-left" th:text="${each.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                                     do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </div>
 
@@ -167,72 +172,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 2</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-info">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 3</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-black">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 4</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-danger">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 5</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
+
+
+
+
         <!-- / Top -->
 
         <!-- Recent -->
