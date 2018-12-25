@@ -1,9 +1,13 @@
 package com.ooad.scriptpro.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +24,7 @@ public class Script {
     @Column(name="name", nullable = false)
     private String name;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category", nullable = false)
     private Type type;
@@ -31,11 +36,20 @@ public class Script {
     private String description;
 
     @Column(name="popular_points", nullable = false, columnDefinition = "INT default 0")
-    private int popular_points;
+    private int popularPoints;
 
     @Column(name="path")
     private int path;
 
+    @CreationTimestamp
+    @Column(name="create_time", updatable = false)
+    private Date createTime;
+
+    @UpdateTimestamp
+    @Column(name="update_time")
+    private Date updateTime;
+
+    @JsonBackReference
     @ManyToMany(mappedBy = "scripts")
     private Set<User> users = new HashSet<>();
 

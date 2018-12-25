@@ -1,5 +1,6 @@
 package com.ooad.scriptpro.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AccessLevel;
 import lombok.Generated;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class User {
     @Column(name="phone")
     private String phone;
 
+    @JsonBackReference
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE

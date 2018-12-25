@@ -1,5 +1,6 @@
 package com.ooad.scriptpro.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class Type {
     @Column(name="name")
     private String name;
 
+    @JsonBackReference
     @OneToMany(
             mappedBy = "type",
             cascade = CascadeType.ALL,

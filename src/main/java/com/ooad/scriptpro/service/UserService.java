@@ -14,5 +14,6 @@ public interface UserService {
     void deleteUserByID(long id);
     void deleteUserByUsername(String username);
 
-    Set<Script> getUserScripts(User user);
+    List<Script> getUserScripts(User user);
+
 }

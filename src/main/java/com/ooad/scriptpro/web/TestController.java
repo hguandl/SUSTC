@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Transactional
@@ -21,5 +22,15 @@ public class TestController {
         Script script = scriptService.findByScriptName(scriptName);
         ArrayList<User> users = new ArrayList<>(script.getUsers());
         System.out.println(users.get(0).getUsername());
+    }
+
+    @GetMapping("/topPopular")
+    public List<Script> getTopPopular(){
+        return scriptService.getTopFivePopular();
+    }
+
+    @GetMapping("/topLatest")
+    public List<Script> getTopLatest(){
+        return scriptService.getTopFiveLatest();
     }
 }

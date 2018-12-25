@@ -6,6 +6,8 @@ import com.ooad.scriptpro.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -42,7 +44,7 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public Set<Script> getUserScripts(User user) {
-        return user.getScripts();
+    public List<Script> getUserScripts(User user) {
+        return new ArrayList<>(user.getScripts());
     }
 }
