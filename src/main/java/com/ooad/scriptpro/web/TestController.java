@@ -5,6 +5,7 @@ import com.ooad.scriptpro.model.Type;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.docker.Container;
+import com.ooad.scriptpro.service.docker.DockerLog;
 import com.ooad.scriptpro.service.docker.config.ScriptLang;
 import com.ooad.scriptpro.web.utils.TypeAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,11 +66,36 @@ public class TestController {
             if (ret == 0) {
 				return container.getOutput();
             } else {
-                return "err";
+                return container.getOutput();
             }
         }catch (Exception e){
             e.printStackTrace();
             return "err";
+        }
+
+    }
+
+    @GetMapping("/getScript")
+    public String getScript(@RequestParam(value = "id") long id){
+        Script script = scriptService.findById(id);
+        if(script == null){
+            return "null";
+        }else{
+            return script.getName();
+        }
+    }
+
+    @GetMapping("/vagueSearch")
+    public List<Script> vagueSearch(@RequestParam(value="str") String str){
+        return scriptService.vagueSearch(str);
+    }
+
+    @GetMapping("/getContent")
+    public String getContent(@RequestParam(value = "id") int id){
+        try{
+            return scriptService.getScriptContentById(id);
+        }catch (Exception e){
+            return "";
         }
 
     }

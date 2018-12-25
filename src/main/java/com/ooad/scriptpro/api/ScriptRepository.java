@@ -13,4 +13,5 @@ public interface ScriptRepository extends JpaRepository<Script, Long>{
     void deleteScriptByName(String name);
     List<Script> findAllByOrderByPopularPointsDesc(Pageable pageable);
     List<Script> findAllByOrderByUpdateTimeDesc(Pageable pageable);
+    List<Script> findAllByNameLike(String str);
 }

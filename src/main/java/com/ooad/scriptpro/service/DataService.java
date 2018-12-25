@@ -54,6 +54,7 @@ public class DataService {
         String[] names = {"ocr", "course_helper", "choose course faster", "the secret of six", "calculator"};
         String[] types = {"python", "javascript", "ruby", "go", "php"};
         String[][] users = {{"chenshijie", "guanhao"}, {"gongyue", "zhouying"}, {"jiangtiankai"}, {"gongyue", "chenshijie"}, {"guanhao", "gongyue"}};
+        String[] intros = {"very interesting and power full tools, transfer pics to text", "help you choose all your expected courses", "choose course faster and easier", "Are you curious about six? teach you the secret of six.", "an accurate and powerful calculator"};
         for(int i=0; i<names.length; i++){
             Script script = new Script();
             script.setName(names[i]);

@@ -12,6 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="scriptpro" target="11" />
       <module name="SUSTC" target="11" />
     </bytecodeTargetLevel>
   </component>

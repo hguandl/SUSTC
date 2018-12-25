@@ -70,6 +70,11 @@ public class ScriptServiceImpl implements ScriptService {
     }
 
     @Override
+    public List<Script> vagueSearch(String query) {
+        return scriptRepository.findAllByNameLike('%' + query + "%");
+    }
+
+    @Override
     public String getScriptContentById(int id) throws IOException, SQLException {
         Script script = findById(id);
         BufferedReader br = new BufferedReader(script.getContent().getCharacterStream());

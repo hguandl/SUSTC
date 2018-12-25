@@ -24,6 +24,8 @@ public interface ScriptService {
     List<Script> getTopFivePopular();
     List<Script> getTopFiveLatest();
 
-    String getScriptContentById(int id) throws IOException, SQLException;
+    List<Script> vagueSearch(String query);
+
+    String getScriptContentById(int id) throws IOException, SQLException, IOException, SQLException;
 
 }
