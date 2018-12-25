@@ -35,8 +35,8 @@ public class ScriptproApplicationTests {
 	ScriptService scriptService;
 	@Test
 	public void testRetrieveScript() throws Exception {
-		assert scriptService.getScriptContentById(11) != null;
-        System.out.println(scriptService.getScriptContentById(11));
+		assert scriptService.getScriptContentById(12) != null;
+        System.out.println(scriptService.getScriptContentById(12));
 	}
 }
 
