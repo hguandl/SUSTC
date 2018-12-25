@@ -9,6 +9,7 @@ import com.ooad.scriptpro.service.docker.config.WaitInfo;
 import java.io.File;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.sql.SQLException;
 import java.util.UUID;
 
 import com.ooad.scriptpro.util.Http;
@@ -28,12 +29,12 @@ public class Container {
 
     private ContainerConfig config = null;
 
-    public Container(ScriptLang type, int scriptId, String[] args) throws IOException {
+    public Container(ScriptLang type, int scriptId, String[] args) throws IOException, SQLException {
         this.type = type;
         this.init(scriptId, args);
     }
 
-    private void init(int scriptId, String[] args) throws IOException {
+    private void init(int scriptId, String[] args) throws IOException, SQLException {
         uuid = UUID.randomUUID().toString().replace("-", "").toLowerCase();
 
         File directory = new File("/tmp/" + this.uuid + "/");

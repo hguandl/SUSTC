@@ -3,12 +3,16 @@ package com.ooad.scriptpro.service;
 import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,4 +71,17 @@ public class ScriptServiceImpl implements ScriptService {
         return scripts;
     }
 
+    @Override
+    public String getScriptContentById(int id) throws IOException, SQLException {
+        Script script = findById(id);
+        BufferedReader br = new BufferedReader(script.getContent().getCharacterStream());
+        StringBuilder sb = new StringBuilder();
+        String line = br.readLine();
+        while (line != null) {
+            sb.append(line);
+            sb.append("\n");
+            line = br.readLine();
+        }
+        return sb.toString();
+    }
 }

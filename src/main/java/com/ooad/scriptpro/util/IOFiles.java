@@ -2,15 +2,18 @@ package com.ooad.scriptpro.util;
 
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.ScriptServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 
 public class IOFiles {
+    @Autowired
+    static ScriptService scriptService;
 
-    public static void place(int scriptID, String filePath) throws IOException {
-        ScriptService scriptService = new ScriptServiceImpl();
-        String script = scriptService.findById(scriptID).getContent().toString();  // TODO
+    public static void place(int scriptID, String filePath) throws IOException, SQLException {
+        String script = scriptService.getScriptContentById(scriptID);
         Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(filePath), StandardCharsets.UTF_8));
         writer.write(script);

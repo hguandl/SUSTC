@@ -5,6 +5,8 @@ import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ScriptService {
@@ -21,5 +23,7 @@ public interface ScriptService {
 
     List<Script> getTopFivePopular();
     List<Script> getTopFiveLatest();
+
+    String getScriptContentById(int id) throws IOException, SQLException;
 
 }
