@@ -64,9 +64,13 @@ public class ScriptController {
                                    HttpSession session){
         System.out.println("call upload script controller");
         Script script = new Script();
+        System.out.println(scriptFormText.getName());
         script.setName(scriptFormText.getName());
+
         script.setDescription(scriptFormText.getDescription());
-        script.setType(typeService.findServiceByName(scriptFormText.getType()));
+
+        System.out.println("type:"+scriptFormText.getTypee());
+        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
         String scriptContent = scriptFormText.getFile();
         if(scriptContent == null){
             System.out.println("null");
@@ -77,6 +81,36 @@ public class ScriptController {
             User user = (User)session.getAttribute("user");
             script.setAuthor(user.getUsername());
             scriptService.save(script);
+            System.out.println("save success");
+            return "redirect:/myscripts";
+        }catch (Exception e){
+            return "redirect:/myscripts";
+        }
+    }
+    @PostMapping("/updateScriptText")
+    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText,
+                                   @RequestParam long sid){
+        System.out.println("call update script controller "+sid);
+
+        Script script = new Script();
+        script.setId(sid);
+        System.out.println(scriptFormText.getName());
+        script.setName(scriptFormText.getName());
+
+        script.setDescription(scriptFormText.getDescription());
+
+        System.out.println("type:"+scriptFormText.getTypee());
+        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
+        String scriptContent = scriptFormText.getFile();
+        if(scriptContent == null){
+            System.out.println("null");
+        }
+        try{
+            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
+            script.setContent(clob);
+            script.setAuthor(scriptService.findById(sid).getAuthor());
+            scriptService.save(script);
+            System.out.println("save success");
             return "redirect:/myscripts";
         }catch (Exception e){
             return "redirect:/myscripts";

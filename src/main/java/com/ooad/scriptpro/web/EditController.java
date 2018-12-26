@@ -31,6 +31,7 @@ public class EditController {
                                    @RequestParam long sid){
 
         Script currentScript = scriptService.findById(sid);
+        model.addAttribute("sid",sid);
         try {
             String s = scriptService.getScriptContentById((int)sid);
             model.addAttribute("currentContent",s);

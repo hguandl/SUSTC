@@ -24,6 +24,7 @@ public class ScriptInfoController {
                                    @RequestParam long sid){
 //        System.out.println(sid);
         Script s = scriptService.findById(sid);
+        model.addAttribute("sid",sid);
         ScriptRun scriptRun = new ScriptRun();
 
         model.addAttribute("script", s);
