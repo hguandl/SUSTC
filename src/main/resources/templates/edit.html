@@ -48,7 +48,7 @@
 
     <!-- holder.js -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
-
+s
     <!-- Pace.js -->
     <script src="../js/pace.min.js"></script>
 
@@ -215,11 +215,11 @@
                 <div class="panel-body">
                     <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
                           enctype="multipart/form-data">
-                        <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">
+                        <input type="text" class="form-control" required th:field="*{name}" placeholder="Script Name:">
                         <br>
-                        <input type="text" class="form-control" th:field="*{type}" placeholder="Language:">
+                        <input type="text" class="form-control" required th:field="*{type}" placeholder="Language:">
                         <br>
-                        <textarea class="form-control" rows="4" th:field="*{description}"
+                        <textarea class="form-control" rows="4" required th:field="*{description}"
                                   placeholder="Description:"></textarea>
                         <br>
                         <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
