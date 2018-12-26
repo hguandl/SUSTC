@@ -31,11 +31,6 @@ public class MainController {
         return "uploadscript";
     }
 
-    @GetMapping(value = {"/myscripts","/myscripts.html"})
-    public String myscriptsControl(){
-        return "myscripts";
-    }
-
     @GetMapping(value = {"/search","/search.html"})
     public String searchControl(){
         return "search";
