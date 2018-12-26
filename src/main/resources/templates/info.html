@@ -195,13 +195,14 @@
 
                     <div class="panel col-md-12">
                         <div class="panel-body">
-                            <form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post">
+                            <form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="POST">
                             <br>
-                            <textarea class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}"></textarea>
+                            <textarea id="runArgs" class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}"></textarea>
                             <br>
-                            <textarea readonly class="form-control" rows="2" th:text="${result}"></textarea>
+                            <textarea id="runResult" readonly class="form-control" rows="2" th:text="${result}"></textarea>
                             <br>
-                            <button type="submit" class="btn btn-success btn-outline" style="width: 100px">Run</button>
+                            <!--<button type="submit" class="btn btn-success btn-outline" style="width: 100px">Run</button>-->
+                                <button type="button" onclick="runScript()" class="btn btn-success btn-outline" style="width: 100px">Run</button>
                             &emsp;&emsp;&emsp;
                             <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
                             &emsp;&emsp;&emsp;
@@ -213,6 +214,18 @@
                             <br>
                         </div>
                     </div>
+
+                    <script th:inline="javascript">
+                        function runScript() {
+                            var scriptRun = [[${scriptRun}]];
+                            scriptRun.args_str = document.getElementById("runArgs").innerText;
+                            var id = [[${script.id}]];
+                            var type = [[${script.type.name}]];
+                            var run = $.post("/runScript/" + id + "/" + type, scriptRun, function(result) {
+                                document.getElementById("runResult").innerText = result;
+                            });
+                        }
+                    </script>
 
                     <!--<form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post" >-->
 

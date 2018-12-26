@@ -1,7 +1,5 @@
 package com.ooad.scriptpro.web;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.ooad.scriptpro.model.*;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.sql.Clob;
 
-@RestController
+@Controller
 public class ScriptController {
     @Autowired
     ScriptService scriptService;
@@ -69,8 +67,8 @@ public class ScriptController {
 
         script.setDescription(scriptFormText.getDescription());
 
-        System.out.println("type:"+scriptFormText.getTypee());
-        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
+        System.out.println("type:"+scriptFormText.getType());
+        script.setType(typeService.findServiceByName(scriptFormText.getType()));
         String scriptContent = scriptFormText.getFile();
         if(scriptContent == null){
             System.out.println("null");
@@ -99,8 +97,8 @@ public class ScriptController {
 
         script.setDescription(scriptFormText.getDescription());
 
-        System.out.println("type:"+scriptFormText.getTypee());
-        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
+        System.out.println("type:"+scriptFormText.getType());
+        script.setType(typeService.findServiceByName(scriptFormText.getType()));
         String scriptContent = scriptFormText.getFile();
         if(scriptContent == null){
             System.out.println("null");
@@ -118,17 +116,35 @@ public class ScriptController {
     }
 
 
+//    @PostMapping("/runScript/{id}/{type}")
+//    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun,
+//                            Model model){
+//
+//        System.out.println(id);
+//        System.out.println(typeName);
+//        System.out.println(scriptRun.getArgs_str());
+//        String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+//        res = "test";
+//        System.out.println("output:" + res);
+//        model.addAttribute("result", res);
+//        return "redirect:/info";
+//    }
+}
+
+@RestController
+class ScriptApi {
+    @Autowired
+    ScriptService scriptService;
+
     @PostMapping("/runScript/{id}/{type}")
-    public void runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun){
+    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun) {
 
         System.out.println(id);
         System.out.println(typeName);
         System.out.println(scriptRun.getArgs_str());
         String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+        res = "test";
         System.out.println("output:" + res);
-        // result = res;
+        return res;
     }
-
-
-
 }

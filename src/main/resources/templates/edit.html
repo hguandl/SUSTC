@@ -220,7 +220,7 @@
                     <div class="panel-body">
                         <input type="text" class="form-control" required th:name = "name" th:value="${currentScript.name}" />
                         <br>
-                        <input type="text" class="form-control" required th:field = "*{typee}" th:value="${currentScript.type.name}" />
+                        <input type="text" class="form-control" required th:field = "*{type}" th:value="${currentScript.type.name}" />
 
                         <br>
                         <textarea class="form-control" rows="4" required th:description="description" th:text="${currentScript.description}" ></textarea>
