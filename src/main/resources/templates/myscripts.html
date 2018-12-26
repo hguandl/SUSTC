@@ -163,9 +163,9 @@
                         </div>
                         <div class="col-md-3">
                             <br>
-                            <button type="button" class="btn btn-outline" style="width: 80px">Edit</button>
+                            <button type="button" class="btn btn-outline" style="width: 80px" onclick="">Edit</button>
                             <br><br>
-                            <button type="button" class="btn btn-danger btn-outline" style="width: 80px">Delete</button>
+                            <button type="button" class="btn btn-danger btn-outline" style="width: 80px" th:onclick="'javascript:window.location.href=\'/myscripts/delete?sid=' + ${each.id} + '\'' ">Delete</button>
                         </div>
                     </div>
                 </div>

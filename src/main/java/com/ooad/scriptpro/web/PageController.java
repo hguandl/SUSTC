@@ -25,9 +25,9 @@ public class PageController {
         System.out.println("call userHomeController, username:"+user.getUsername());
         List<Script> topScripts = scriptService.getTopFiveLatest();
         List<Script> recentScripts = scriptService.getTopFiveLatest();
-        for (Script script:topScripts){
-            System.out.println(script.getDescription());
-        }
+//        for (Script script:topScripts)
+//            System.out.println(script.getDescription());
+
         model.addAttribute("user",user);
         model.addAttribute("topScripts",topScripts);
         model.addAttribute("recentScripts",recentScripts);
