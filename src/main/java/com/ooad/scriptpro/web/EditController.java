@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
@@ -19,10 +18,9 @@ public class EditController {
     public String scriptController(Model model,
                                    HttpSession httpSession,
                                    @RequestParam long sid){
-//        System.out.println(sid);
         Script s = scriptService.findById(sid);
 
         model.addAttribute("script", s);
-        return "/info";
+        return "/edit";
     }
 }
