@@ -193,24 +193,44 @@
                         </div>
                     </div>
 
-
-                    <form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post" >
-
-                    <div class="col-md-12">
-                        <br>
-                        <textarea class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}">unun</textarea>
+                    <div class="panel col-md-12">
+                        <div class="panel-body">
+                            <form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post">
+                            <br>
+                            <textarea class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}"></textarea>
+                            <br>
+                            <textarea readonly class="form-control" rows="2" th:text="${result}"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-success btn-outline" style="width: 100px">Run</button>
+                            &emsp;&emsp;&emsp;
+                            <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
+                            &emsp;&emsp;&emsp;
+                            <button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>
+                            &emsp;&emsp;&emsp;
+                            <button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>
+                            </form>
+                            <br>
+                            <br>
+                        </div>
                     </div>
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block">RUN</button>
-                    </form>
 
-                    <br>
-                    <div class="col-md-12">
-                        <br>
-                        <textarea readonly class="form-control" rows="2" th:text="${result}"></textarea>
-                    </div>
-                    <br>
+                    <!--<form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post" >-->
+
+                    <!--<div class="col-md-12">-->
+                        <!--<br>-->
+                        <!--<textarea class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}">unun</textarea>-->
+                    <!--</div>-->
+                    <!--<br>-->
+                    <!--<br>-->
+                    <!--<button type="submit" class="btn btn-lg btn-primary btn-block">RUN</button>-->
+                    <!--</form>-->
+
+                    <!--<br>-->
+                    <!--<div class="col-md-12">-->
+                        <!--<br>-->
+                        <!--<textarea readonly class="form-control" rows="2" th:text="${result}"></textarea>-->
+                    <!--</div>-->
+                    <!--<br>-->
 
                 </div>
 
