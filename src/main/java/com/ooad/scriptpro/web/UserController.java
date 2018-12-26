@@ -23,14 +23,14 @@ public class UserController {
     @Autowired
     private UserRepository userDao;
 
-    @GetMapping("/")
-    public String index(Model model, HttpSession httpSession){
-        if(httpSession.getAttribute(WebSecurityConfig.SESSION_KEY) == null){
-            model.addAttribute("message","");
-            return "login";
-        }
-        return "redirect:/userHome";
-    }
+//    @GetMapping("/")
+//    public String index(Model model, HttpSession httpSession){
+//        if(httpSession.getAttribute(WebSecurityConfig.SESSION_KEY) == null){
+//            model.addAttribute("message","");
+//            return "login";
+//        }
+//        return "redirect:/userHome";
+//    }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     public String login(@RequestParam String username,

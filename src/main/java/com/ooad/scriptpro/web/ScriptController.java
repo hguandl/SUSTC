@@ -115,17 +115,35 @@ public class ScriptController {
     }
 
 
+//    @PostMapping("/runScript/{id}/{type}")
+//    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun,
+//                            Model model){
+//
+//        System.out.println(id);
+//        System.out.println(typeName);
+//        System.out.println(scriptRun.getArgs_str());
+//        String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+//        res = "test";
+//        System.out.println("output:" + res);
+//        model.addAttribute("result", res);
+//        return "redirect:/info";
+//    }
+}
+
+@RestController
+class ScriptApi {
+    @Autowired
+    ScriptService scriptService;
+
     @PostMapping("/runScript/{id}/{type}")
-    public void runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun){
+    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun) {
 
         System.out.println(id);
         System.out.println(typeName);
         System.out.println(scriptRun.getArgs_str());
         String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+        res = "test";
         System.out.println("output:" + res);
-        // result = res;
+        return res;
     }
-
-
-
 }
