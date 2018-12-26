@@ -26,6 +26,6 @@ public interface ScriptService {
 
     List<Script> vagueSearch(String query);
 
-    String getScriptContentById(int id) throws IOException, SQLException, IOException, SQLException;
+    String getScriptContentById(long id) throws IOException, SQLException;
     String run(String typename, int id, String args_str);
 }
