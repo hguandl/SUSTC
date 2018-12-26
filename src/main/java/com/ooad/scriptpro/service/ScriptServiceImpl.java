@@ -94,7 +94,7 @@ public class ScriptServiceImpl implements ScriptService {
     }
 
     @Override
-    public String getScriptContentById(int id) throws IOException, SQLException {
+    public String getScriptContentById(long id) throws IOException, SQLException {
         Script script = findById(id);
         BufferedReader br = new BufferedReader(script.getContent().getCharacterStream());
         StringBuilder sb = new StringBuilder();

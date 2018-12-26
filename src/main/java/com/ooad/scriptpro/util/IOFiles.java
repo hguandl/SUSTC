@@ -1,7 +1,6 @@
 package com.ooad.scriptpro.util;
 
 import com.ooad.scriptpro.service.ScriptService;
-import com.ooad.scriptpro.service.ScriptServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

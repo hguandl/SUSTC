@@ -29,6 +29,11 @@ public class ScriptInfoController {
         model.addAttribute("script", s);
         model.addAttribute("scriptRun", scriptRun);
         model.addAttribute("result", "");
+        try {
+            model.addAttribute("scriptContent", scriptService.getScriptContentById(s.getId()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "/info";
     }
 }
