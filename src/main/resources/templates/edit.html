@@ -218,12 +218,12 @@
                         <div class="panel-title">Basic Information</div>
                     </div>
                     <div class="panel-body">
-                        <input type="text" class="form-control" required th:name = "name" th:value="${currentScript.name}" />
+                        <input type="text" class="form-control" required th:name = "name" th:id = "name" th:value="${currentScript.name}" />
                         <br>
-                        <input type="text" class="form-control" required th:field = "*{type}" th:value="${currentScript.type.name}" />
+                        <input type="text" class="form-control" required th:name = "type" th:id = "type" th:value="${currentScript.type.name}" />
 
                         <br>
-                        <textarea class="form-control" rows="4" required th:description="description" th:text="${currentScript.description}" ></textarea>
+                        <textarea class="form-control" rows="4" required th:name = "description" th:id = "description" th:text="${currentScript.description}" ></textarea>
                         <br>
                         <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
                         <br>
