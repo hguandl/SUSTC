@@ -3,6 +3,9 @@ package com.ooad.scriptpro.service;
 import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
+import com.ooad.scriptpro.service.docker.Container;
+import com.ooad.scriptpro.service.docker.config.ScriptLang;
+import com.ooad.scriptpro.web.utils.TypeAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -103,5 +106,25 @@ public class ScriptServiceImpl implements ScriptService {
         }
         br.close();
         return sb.toString();
+    }
+
+    public String run(String typename, int id, String args_str){
+        TypeAdapter typeAdapter = new TypeAdapter();
+        ScriptLang scriptLang = typeAdapter.toScriptLang(typename);
+        String args[] =  args_str.split(" ");
+        try{
+            Container container = new Container(scriptLang, id, args);
+            container.execCreateContainer();
+            int ret = container.execRunContainer();
+
+            if (ret == 0) {
+                return container.getOutput();
+            } else {
+                return container.getOutput();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return "err";
+        }
     }
 }

@@ -52,7 +52,7 @@ public class TestController {
     public List<Script> getTopLatest(){
         return scriptService.getTopFiveLatest();
     }
-
+    /*
     @PostMapping("/run")
     public String run(@RequestParam(value = "type")String typename, @RequestParam(value="id") int id){
         TypeAdapter typeAdapter = new TypeAdapter();
@@ -73,7 +73,7 @@ public class TestController {
             return "err";
         }
 
-    }
+    }*/
 
     @GetMapping("/getScript")
     public String getScript(@RequestParam(value = "id") long id){
