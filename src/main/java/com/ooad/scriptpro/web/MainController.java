@@ -13,7 +13,7 @@ public class MainController {
     @Autowired
     UserService userService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String welcomeControl(){
         return "index";
     }
