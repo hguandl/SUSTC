@@ -23,7 +23,7 @@ public class PageController {
                                      HttpSession httpSession){
         User user = (User)httpSession.getAttribute("user");
         System.out.println("call userHomeController, username:"+user.getUsername());
-        List<Script> topScripts = scriptService.getTopFiveLatest();
+        List<Script> topScripts = scriptService.getTopFivePopular();
         List<Script> recentScripts = scriptService.getTopFiveLatest();
 //        for (Script script:topScripts)
 //            System.out.println(script.getDescription());
