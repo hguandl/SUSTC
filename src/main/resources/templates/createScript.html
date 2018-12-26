@@ -180,7 +180,7 @@
                                     <tr>
                                         <td style="text-align: center;padding:0 15px 30px 30px;"><span style="font-size: 14px;">Text Size:</span>
                                         </td>
-                                        <td style="text-align: center;padding:0 30px 30px 15px;">
+                                        <td style="text-align: center;padding:0 0px 30px 0px;">
                                             <select class="custom-select form-control"
                                                     onchange="{editor.setFontSize(this.value + 'px')};">
                                                 <option value=12>12</option>
@@ -195,7 +195,7 @@
                                     <tr>
                                         <td style="text-align: center;padding:0 15px 30px 30px;"><span style="font-size: 14px;">Theme:</span>
                                         </td>
-                                        <td style="text-align: center;padding:0 30px 30px 15px;">
+                                        <td style="text-align: center;padding:0 0px 30px 0px;">
                                             <select class="custom-select form-control"
                                                     onchange="{editor.setTheme('ace/theme/' + this.value);};">
                                                 <option value="ambiance">ambiance</option>
@@ -213,14 +213,17 @@
                                     <tr>
                                         <td style="text-align: center;padding:0 15px 0px 30px;"><span style="font-size: 14px;">Language:</span>
                                         </td>
-                                        <td style="text-align: center;padding:0 30px 0px 15px;">
-                                            <select class="custom-select form-control"
-                                                    onchange="{editor.session.setMode('ace/mode/' + this.value);};">
+                                        <td style="text-align: center;padding:0 0 0 0;">
+                                            <select id="editorType" class="custom-select form-control"
+                                                    onchange=" {
+                                                        editor.session.setMode('ace/mode/' + this.value);
+                                                        document.getElementById('formType').value = this.value;
+                                                    }">
                                                 <option value="javascript" selected="selected">javascript</option>
                                                 <option value="python">python</option>
                                                 <option value="php">php</option>
-                                                <option value="golang">golang</option>
-                                                <option value="java">java</option>
+                                                <option value="perl">perl</option>
+                                                <option value="ruby">ruby</option>
                                             </select>
                                         </td>
                                     </tr>
@@ -234,7 +237,14 @@
                             <div class="panel-body">
                                     <input id="formName" type="text" class="form-control" required placeholder="Script Name:">
                                     <br>
-                                    <input id="formType" type="text" class="form-control" required placeholder="Language:">
+                                    <select id="formType" class="custom-select form-control"
+                                            onchange="{document.getElementById('editorType').value = this.value}">
+                                        <option value="javascript" selected="selected">javascript</option>
+                                        <option value="python">python</option>
+                                        <option value="php">php</option>
+                                        <option value="perl">perl</option>
+                                        <option value="ruby">ruby</option>
+                                    </select>
                                     <br>
                                     <textarea id="formDescription" class="form-control" rows="4" required
                                               placeholder="Description:"></textarea>
@@ -344,7 +354,7 @@
 <script th:inline="javascript">
     var form = document.getElementById("createForm");
     form.onsubmit = function(e) {
-        event.preventDefault();
+        e.preventDefault();
         createScript();
     }
 

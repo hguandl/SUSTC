@@ -312,10 +312,11 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/pixeladmin.min.js"></script>
 <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
+<script th:inline="javascript">
     var editor = ace.edit("editor");
+    var type = [[${script.getType().getName()}]];
     editor.setTheme("ace/theme/chrome");
-    editor.session.setMode("ace/mode/javascript");
+    editor.session.setMode("ace/mode/" + type);
     editor.setFontSize("16px");
     editor.setReadOnly(true);
 </script>
