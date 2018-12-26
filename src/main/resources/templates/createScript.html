@@ -160,11 +160,10 @@
         <div class="tab-content tab-content-bordered">
             <div class="tab-pane fade active in" id="tabs-home">
                 <div class="row">
-                    <form action="#" th:action="@{/createScriptText}" th:object="${scriptFormText}" method="post"
-                          enctype="multipart/form-data" id="editorTextForm">
+                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
+                          enctype="multipart/form-data">
                     <div class="col-md-9">
                         <div class="panel clearfix text-default" style="height: 600px">
-                            <input name="hiddenCode" type="text" hidden id="editorText" required th:field="*{file}">
                             <div id="editor">function foo(items) {
                                 var x = "Hello World!";
                                 return x;
@@ -248,22 +247,22 @@
                     </div>
                     </form>
                     <div class="panel col-md-12">
-                        <div class="panel-body">
-                            <br>
-                            <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
-                            <br>
-                            <textarea readonly class="form-control" rows="2"></textarea>
-                            <br>
-                            <button type="button" class="btn btn-success btn-outline" style="width: 100px">Run</button>
-                            &emsp;&emsp;&emsp;
-                            <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
-                            &emsp;&emsp;&emsp;
-                            <button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>
-                            &emsp;&emsp;&emsp;
-                            <button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>
-                            <br>
-                            <br>
-                        </div>
+                        <!--<div class="panel-body">-->
+                            <!--<br>-->
+                            <!--<textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>-->
+                            <!--<br>-->
+                            <!--<textarea readonly class="form-control" rows="2"></textarea>-->
+                            <!--<br>-->
+                            <!--<button type="button" class="btn btn-success btn-outline" style="width: 100px">Run</button>-->
+                            <!--&emsp;&emsp;&emsp;-->
+                            <!--<button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>-->
+                            <!--&emsp;&emsp;&emsp;-->
+                            <!--<button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>-->
+                            <!--&emsp;&emsp;&emsp;-->
+                            <!--<button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>-->
+                            <!--<br>-->
+                            <!--<br>-->
+                        <!--</div>-->
                     </div>
 
 
@@ -291,6 +290,7 @@
                         <!--</form>-->
                         <!--</div>-->
                         <!--</div>-->
+                        <!--</div>-->
 
                         <div class="panel">
                             <div class="panel-heading">
@@ -313,20 +313,20 @@
                                 </form>
 
 
-                                <br>
-                                <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
+                                <!--<br>-->
+                                <!--<textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>-->
 
-                                <br>
-                                <textarea readonly class="form-control" rows="2"></textarea>
+                                <!--<br>-->
+                                <!--<textarea readonly class="form-control" rows="2"></textarea>-->
 
-                                <br>
-                                <button type="button" class="btn btn-primary btn-outline" style="width: 100px">Run</button>
-                                &emsp;&emsp;&emsp;
-                                <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
-                                &emsp;&emsp;&emsp;
-                                <button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>
-                                &emsp;&emsp;&emsp;
-                                <button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>
+                                <!--<br>-->
+                                <!--<button type="button" class="btn btn-primary btn-outline" style="width: 100px">Run</button>-->
+                                <!--&emsp;&emsp;&emsp;-->
+                                <!--<button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>-->
+                                <!--&emsp;&emsp;&emsp;-->
+                                <!--<button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>-->
+                                <!--&emsp;&emsp;&emsp;-->
+                                <!--<button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>-->
 
                             </div>
                         </div>
@@ -353,12 +353,7 @@
     editor.setTheme("ace/theme/chrome");
     editor.session.setMode("ace/mode/javascript");
     editor.setFontSize("16px")
-
-    document.getElementById("editorTextForm").onchange = function(evt) {
-        document.getElementById("editorText").value = editor.getValue();
-    }
 </script>
-
 <script>
   $('input[type="file"]').change(function(e){
     var fileName = e.target.files[0].name;

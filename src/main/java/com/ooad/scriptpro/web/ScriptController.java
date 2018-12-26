@@ -2,10 +2,7 @@ package com.ooad.scriptpro.web;
 
 import ch.qos.logback.core.encoder.EchoEncoder;
 import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
-import com.ooad.scriptpro.model.Script;
-import com.ooad.scriptpro.model.ScriptForm;
-import com.ooad.scriptpro.model.ScriptFormText;
-import com.ooad.scriptpro.model.User;
+import com.ooad.scriptpro.model.*;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.TypeService;
@@ -17,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.sql.Clob;
 
-@Controller
+@RestController
 public class ScriptController {
     @Autowired
     ScriptService scriptService;
@@ -119,4 +116,19 @@ public class ScriptController {
             return "redirect:/myscripts";
         }
     }
+
+
+    @PostMapping("/runScript/{id}/{type}")
+    public void runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun){
+
+        System.out.println(id);
+        System.out.println(typeName);
+        System.out.println(scriptRun.getArgs_str());
+        String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+        System.out.println("output:" + res);
+        // result = res;
+    }
+
+
+
 }
