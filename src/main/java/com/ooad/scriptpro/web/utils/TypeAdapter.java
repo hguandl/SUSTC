@@ -13,8 +13,8 @@ public class TypeAdapter {
                 return ScriptLang.PYTHON;
             case "ruby":
                 return ScriptLang.RUBY;
-            case "go":
-                return ScriptLang.GO;
+            case "perl":
+                return ScriptLang.PERL;
             case "php":
                 return ScriptLang.PHP;
         }

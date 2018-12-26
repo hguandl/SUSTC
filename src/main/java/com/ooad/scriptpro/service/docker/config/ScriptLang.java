@@ -3,7 +3,7 @@ package com.ooad.scriptpro.service.docker.config;
 public enum ScriptLang {
     PYTHON("python", "python3", "/data/run.py"),
     JAVASCRIPT("javascript", "node", "/data/run.js"),
-    GO("go", "go run", "/data/run.go"),
+    PERL("perl", "perl", "/data/run.pl"),
     PHP("php", "php", "/data/run.php"),
     RUBY("ruby", "ruby", "/data/run.rb");
 
