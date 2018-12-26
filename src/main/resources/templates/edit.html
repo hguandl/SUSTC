@@ -141,8 +141,11 @@
         </div>
     </div>
     <div class="row">
-        <form action="#" th:action="@{/createScriptText}" th:object="${scriptFormText}" method="post"
+
+        <form action="#" th:action="@{'/updateScriptText'}" th:object="${scriptFormText}" method="post"
+
               enctype="multipart/form-data" id="editorTextForm">
+            <input type="hidden" th:attr = "name='sid'" th:value = "${sid}"/>
             <div class="col-md-9">
                 <div class="panel clearfix text-default" style="height: 600px">
                     <input name="hiddenCode" type="text" hidden id="editorText" required th:field="*{file}">
@@ -215,11 +218,12 @@
                         <div class="panel-title">Basic Information</div>
                     </div>
                     <div class="panel-body">
-                        <input type="text" class="form-control" required th:field="*{name}" th:value="${currentScript.name}" />
+                        <input type="text" class="form-control" required th:name = "name" th:value="${currentScript.name}" />
                         <br>
-                        <input type="text" class="form-control" required th:field="*{type}" th:value="${currentScript.type}" />
+                        <input type="text" class="form-control" required th:field = "*{typee}" th:value="${currentScript.type.name}" />
+
                         <br>
-                        <textarea class="form-control" rows="4" required th:field="*{description} " th:value="${currentScript.description}" ></textarea>
+                        <textarea class="form-control" rows="4" required th:description="description" th:text="${currentScript.description}" ></textarea>
                         <br>
                         <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
                         <br>
