@@ -60,20 +60,29 @@ public class ScriptController {
     }
 
     @PostMapping("/createScriptText")
-    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText){
+    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText,
+                                   HttpSession session){
+        System.out.println("call upload script controller");
         Script script = new Script();
         script.setName(scriptFormText.getName());
-        script.setDescription(script.getDescription());
+        script.setDescription(scriptFormText.getDescription());
         script.setType(typeService.findServiceByName(scriptFormText.getType()));
         String scriptContent = scriptFormText.getFile();
+        if(scriptContent == null){
+            System.out.println("null");
+        }
         try{
             Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-            return "upload success";
+            script.setContent(clob);
+            User user = (User)session.getAttribute("user");
+            script.setAuthor(user.getUsername());
+            scriptService.save(script);
+            return "redirect:/myscripts";
         }catch (Exception e){
-            return "Error! String to clob fail!";
+            return "redirect:/myscripts";
         }
-
     }
+
 
     @PostMapping("/runScript/{id}/{type}")
     public void runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun){
@@ -85,6 +94,7 @@ public class ScriptController {
         System.out.println("output:" + res);
         // result = res;
     }
+
 
 
 }

@@ -1,6 +1,7 @@
 package com.ooad.scriptpro.web;
 
 import com.ooad.scriptpro.model.ScriptForm;
+import com.ooad.scriptpro.model.ScriptFormText;
 import com.ooad.scriptpro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class MainController {
     @GetMapping(value = {"/createScript","/createScript.html"})
     public String editControl(Model model){
         model.addAttribute("scriptForm", new ScriptForm());
+        model.addAttribute("scriptFormText", new ScriptFormText());
         return "createScript";
     }
 //    @GetMapping(value = {"/uploadscript","/uploadscript.html"})

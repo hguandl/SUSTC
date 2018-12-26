@@ -160,10 +160,11 @@
         <div class="tab-content tab-content-bordered">
             <div class="tab-pane fade active in" id="tabs-home">
                 <div class="row">
-                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
-                          enctype="multipart/form-data">
+                    <form action="#" th:action="@{/createScriptText}" th:object="${scriptFormText}" method="post"
+                          enctype="multipart/form-data" id="editorTextForm">
                     <div class="col-md-9">
                         <div class="panel clearfix text-default" style="height: 600px">
+                            <input name="hiddenCode" type="text" hidden id="editorText" required th:field="*{file}">
                             <div id="editor">function foo(items) {
                                 var x = "Hello World!";
                                 return x;
@@ -297,19 +298,20 @@
                             </div>
                             <div class="panel-body">
                                 <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post" enctype="multipart/form-data" >
-                                    <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">
+                                    <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:" required>
                                     <br>
-                                    <input type="text" class="form-control" th:field="*{type}" placeholder="Language:">
+                                    <input type="text" class="form-control" th:field="*{type}" placeholder="Language:" required>
                                     <br>
-                                    <textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:"></textarea>
+                                    <textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:" required></textarea>
                                     <br>
                                     <label class="custom-file m-b-2">
-                                        <input type="file" class="custom-file-input" th:field="*{file}">
-                                        <span class="custom-file-control form-control">Choose file...</span>
+                                        <input type="file" class="custom-file-input" th:field="*{file}" required>
+                                        <span class="custom-file-control form-control" id="fileName">Choose file...</span>
                                     </label>
                                     <br>
                                     <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
                                 </form>
+
 
                                 <br>
                                 <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
@@ -351,7 +353,20 @@
     editor.setTheme("ace/theme/chrome");
     editor.session.setMode("ace/mode/javascript");
     editor.setFontSize("16px")
+
+    document.getElementById("editorTextForm").onchange = function(evt) {
+        document.getElementById("editorText").value = editor.getValue();
+    }
 </script>
+
+<script>
+  $('input[type="file"]').change(function(e){
+    var fileName = e.target.files[0].name;
+    console.log(fileName);
+    document.getElementById("fileName").innerHTML = fileName;
+  });
+</script>
+
 <script>
     // -------------------------------------------------------------------------
     // Initialize DEMO sidebar
