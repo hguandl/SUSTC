@@ -1,8 +1,10 @@
 package com.ooad.scriptpro.web;
 
+import ch.qos.logback.core.encoder.EchoEncoder;
 import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.ScriptForm;
+import com.ooad.scriptpro.model.ScriptFormText;
 import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
@@ -62,4 +64,22 @@ public class ScriptController {
             return "redirect:/myscripts";
         }
     }
+
+    @PostMapping("/createScriptText")
+    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText){
+        Script script = new Script();
+        script.setName(scriptFormText.getName());
+        script.setDescription(script.getDescription());
+        script.setType(typeService.findServiceByName(scriptFormText.getType()));
+        String scriptContent = scriptFormText.getFile();
+        try{
+            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
+            return "upload success";
+        }catch (Exception e){
+            return "Error! String to clob fail!";
+        }
+
+    }
+
+
 }

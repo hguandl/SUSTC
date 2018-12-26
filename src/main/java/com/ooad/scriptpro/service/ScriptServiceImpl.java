@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ScriptServiceImpl implements ScriptService {
@@ -35,17 +36,32 @@ public class ScriptServiceImpl implements ScriptService {
     }
 
     @Override
-    public void deleteScript(Script script) {
+    public void deleteScript(Script script)
+    {
+        Set<User> users = script.getUsers();
+        for(User user: users){
+            users.remove(script);
+        }
         scriptRepository.delete(script);
     }
 
     @Override
     public void deleteById(long id) {
+        Script script = scriptRepository.findScriptById(id);
+        Set<User> users = script.getUsers();
+        for(User user: users){
+            users.remove(script);
+        }
         scriptRepository.deleteById(id);
     }
 
     @Override
     public void deleteByScriptName(String scriptName) {
+        Script script = scriptRepository.findScriptByName(scriptName);
+        Set<User> users = script.getUsers();
+        for(User user: users){
+            users.remove(script);
+        }
         scriptRepository.deleteScriptByName(scriptName);
     }
 
