@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 import java.sql.Clob;
 
-@RestController
+@Controller
 public class ScriptController {
     @Autowired
     ScriptService scriptService;
@@ -28,12 +28,6 @@ public class ScriptController {
 
     @Autowired
     FileService fileService;
-    /*
-    @GetMapping("/createScript")
-    public String createScriptForm(Model model){
-        model.addAttribute("scriptForm", new ScriptForm());
-        return "edit";
-    }*/
 
     @PostMapping("/createScript")
     public String SubmitScript(@ModelAttribute(value = "scriptForm") ScriptForm scriptForm,
@@ -42,11 +36,12 @@ public class ScriptController {
         script.setName(scriptForm.getName());
         script.setType(typeService.findServiceByName(scriptForm.getType()));
         script.setDescription(scriptForm.getDescription());
-        String scriptContent = null;
+        String scriptContent;
         try{
             scriptContent = fileService.upload(scriptForm.getFile());
         }catch (Exception e){
-            return "upload fail";
+            //return "upload fail";
+            return "redirect:/myscripts";
         }
         if(scriptContent != null){
             try{
@@ -55,14 +50,16 @@ public class ScriptController {
                 User user = (User)session.getAttribute("user");
                 script.setAuthor(user.getUsername());
                 scriptService.save(script);
-                return "success";
+                return "redirect:/myscripts";
             }catch (Exception e){
-                return "string to clob fail";
+                //return "Error! String to clob fail!";
+                return "redirect:/myscripts";
             }
 
 
         }else{
-            return "upload fail";
+            //return "Error! Fail to upload!";
+            return "redirect:/myscripts";
         }
     }
 }

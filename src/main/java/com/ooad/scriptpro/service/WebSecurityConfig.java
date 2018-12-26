@@ -58,7 +58,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter{
         @Override
-        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+        public boolean preHandle(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 Object handler) throws IOException {
             HttpSession httpSession = request.getSession();
             //return true;
 
