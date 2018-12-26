@@ -1,20 +1,17 @@
 package com.ooad.scriptpro.web;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.ooad.scriptpro.model.*;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.Clob;
 
-@RestController
+@Controller
 public class ScriptController {
     @Autowired
     ScriptService scriptService;
@@ -69,8 +66,8 @@ public class ScriptController {
 
         script.setDescription(scriptFormText.getDescription());
 
-        System.out.println("type:"+scriptFormText.getTypee());
-        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
+        System.out.println("type:"+scriptFormText.getType());
+        script.setType(typeService.findServiceByName(scriptFormText.getType()));
         String scriptContent = scriptFormText.getFile();
         if(scriptContent == null){
             System.out.println("null");
@@ -99,8 +96,8 @@ public class ScriptController {
 
         script.setDescription(scriptFormText.getDescription());
 
-        System.out.println("type:"+scriptFormText.getTypee());
-        script.setType(typeService.findServiceByName(scriptFormText.getTypee()));
+        System.out.println("type:"+scriptFormText.getType());
+        script.setType(typeService.findServiceByName(scriptFormText.getType()));
         String scriptContent = scriptFormText.getFile();
         if(scriptContent == null){
             System.out.println("null");

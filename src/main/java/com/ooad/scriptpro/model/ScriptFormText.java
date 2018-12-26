@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Setter
 public class ScriptFormText {
     private String name;
-    private String typee;
+    private String type;
     private String description;
     private String file;
 }
