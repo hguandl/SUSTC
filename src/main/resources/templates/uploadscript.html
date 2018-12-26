@@ -61,17 +61,6 @@
             background: rgba(0, 0, 0, .05);
         }
     </style>
-    <!-- / Custom styling -->
-    <style type="text/css" media="screen">
-        #editor {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 0px;
-        }
-    </style>
-
 </head>
 <body>
 <nav class="px-nav px-nav-left sidebar"></nav>
@@ -123,14 +112,14 @@
 
 <div class="px-content">
     <ol class="breadcrumb page-breadcrumb">
-        <li><a href="userHome.html">Home</a></li>
-        <li class="active">Editing</li>
+        <li><a href="userHome">Home</a></li>
+        <li class="active">Upload</li>
     </ol>
 
     <div class="page-header">
         <div class="row">
             <div class="col-md-4 text-xs-center text-md-left text-nowrap">
-                <h1><i class="page-header-icon ion-ios-pulse-strong"></i>Editing</h1>
+                <h1><i class="page-header-icon ion-ios-pulse-strong"></i>Upload</h1>
             </div>
 
             <hr class="page-wide-block visible-xs visible-sm">
@@ -140,108 +129,65 @@
 
         </div>
     </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-success btn-outline" style="width: 100px">Run</button>
-        <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
-        <button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>
-        <button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>
-    </div>
     <div class="row">
-        <div class="col-md-9">
-            <div class="panel clearfix text-default" style="height: 600px">
-                <div id="editor">function foo(items) {
-                    var x = "Hello World!";
-                    return x;
-                    }
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel">
-                <div class="panel-heading">
-                    <div class="panel-title">Editor Settings</div>
-                </div>
-                <div class="panel-body">
-                    <table>
-                        <tr>
-                            <td style="text-align: center;padding:0 15px 30px 30px;"><span style="font-size: 14px;">Text Size:</span>
-                            </td>
-                            <td style="text-align: center;padding:0 30px 30px 15px;">
-                                <select class="custom-select form-control"
-                                        onchange="{editor.setFontSize(this.value + 'px')};">
-                                    <option value=12>12</option>
-                                    <option value=14>14</option>
-                                    <option value=16 selected="selected">16</option>
-                                    <option value=18>18</option>
-                                    <option value=20>20</option>
-                                    <option value=22>22</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;padding:0 15px 30px 30px;"><span style="font-size: 14px;">Theme:</span>
-                            </td>
-                            <td style="text-align: center;padding:0 30px 30px 15px;">
-                                <select class="custom-select form-control"
-                                        onchange="{editor.setTheme('ace/theme/' + this.value);};">
-                                    <option value="ambiance">ambiance</option>
-                                    <option value="chaos">chaos</option>
-                                    <option value="chrome" selected="selected">chrome</option>
-                                    <option value="clouds_midnight">clouds_midnight</option>
-                                    <option value="monokai">monokai</option>
-                                    <option value="solarized_dark">solarized_dark</option>
-                                    <option value="solarized_light">solarized_light</option>
-                                    <option value="twilight">twilight</option>
-                                    <option value="xcode">xcode</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;padding:0 15px 0px 30px;"><span style="font-size: 14px;">Language:</span>
-                            </td>
-                            <td style="text-align: center;padding:0 30px 0px 15px;">
-                                <select class="custom-select form-control"
-                                        onchange="{editor.session.setMode('ace/mode/' + this.value);};">
-                                    <option value="javascript" selected="selected">javascript</option>
-                                    <option value="python">python</option>
-                                    <option value="php">php</option>
-                                    <option value="golang">golang</option>
-                                    <option value="java">java</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+        <div class="col-md-offset-3 col-md-6">
+
+
+            <!--<div class="panel">-->
+            <!--<div class="panel-heading">-->
+            <!--<div class="panel-title">Basic Information</div>-->
+            <!--</div>-->
+            <!--<div class="panel-body">-->
+            <!--<form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post" enctype="multipart/form-data" >-->
+            <!--<input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">-->
+            <!--<br>-->
+            <!--<input type="text" class="form-control" th:field="*{type}" placeholder="Language:">-->
+            <!--<br>-->
+            <!--<textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:"></textarea>-->
+            <!--<br>-->
+            <!--<input type="file" class="form-control" th:field="*{file}" name="file">-->
+            <!--<button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>-->
+            <!--</form>-->
+            <!--</div>-->
+            <!--</div>-->
+
             <div class="panel">
                 <div class="panel-heading">
                     <div class="panel-title">Basic Information</div>
                 </div>
                 <div class="panel-body">
-                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
-                          enctype="multipart/form-data">
-                        <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <input type="text" class="form-control" placeholder="Script Name:">
                         <br>
-                        <input type="text" class="form-control" th:field="*{type}" placeholder="Language:">
+                        <input type="text" class="form-control" placeholder="Language:">
                         <br>
-                        <textarea class="form-control" rows="4" th:field="*{description}"
-                                  placeholder="Description:"></textarea>
+                        <textarea class="form-control" rows="4" placeholder="Description:"></textarea>
+                        <br>
+                        <label class="custom-file m-b-2">
+                            <input type="file" class="custom-file-input">
+                            <span class="custom-file-control form-control">Choose file...</span>
+                        </label>
                         <br>
                         <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
-                        <br>
                     </form>
+
+                    <br>
+                    <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
+
+                    <br>
+                    <textarea readonly class="form-control" rows="2"></textarea>
+
+                    <br>
+                    <button type="button" class="btn btn-primary btn-outline" style="width: 100px">Run</button>
+                    &emsp;&emsp;&emsp;
+                    <button type="button" class="btn btn-danger btn-outline" style="width: 100px">Stop</button>
+                    &emsp;&emsp;&emsp;
+                    <button type="button" class="btn btn-warning btn-outline" style="width: 100px">Share</button>
+                    &emsp;&emsp;&emsp;
+                    <button type="button" class="btn btn-info btn-outline " style="width: 100px">Download</button>
+
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <br>
-            <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
-        </div>
-        <br>
-        <div class="col-md-12">
-            <br>
-            <textarea readonly class="form-control" rows="2"></textarea>
         </div>
     </div>
 </div>
@@ -256,13 +202,7 @@
 
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/pixeladmin.min.js"></script>
-<script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/chrome");
-    editor.session.setMode("ace/mode/javascript");
-    editor.setFontSize("16px")
-</script>
+
 <script>
     // -------------------------------------------------------------------------
     // Initialize DEMO sidebar

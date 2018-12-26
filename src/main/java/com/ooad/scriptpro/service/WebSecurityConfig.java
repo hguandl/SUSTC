@@ -37,6 +37,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         addInterceptor.excludePathPatterns("/topPopular");
         addInterceptor.excludePathPatterns("/topLatest");
         addInterceptor.excludePathPatterns("/upload");
+        addInterceptor.excludePathPatterns("/uploadscript");
         addInterceptor.excludePathPatterns("/run");
         addInterceptor.excludePathPatterns("/getScript");
         addInterceptor.excludePathPatterns("/vagueSearch");
