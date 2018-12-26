@@ -22,6 +22,6 @@ public class SearchController {
                                    @RequestParam String str){
         List<Script> scriptList = scriptService.vagueSearch(str);
         model.addAttribute("scriptList", scriptList);
-        return "redirect:/search";
+        return "/search";
     }
 }
