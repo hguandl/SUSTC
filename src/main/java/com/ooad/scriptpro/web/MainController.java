@@ -1,10 +1,12 @@
 package com.ooad.scriptpro.web;
 
 import com.ooad.scriptpro.model.Script;
+import com.ooad.scriptpro.model.ScriptForm;
 import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Set;
@@ -20,7 +22,8 @@ public class MainController {
     }
 
     @GetMapping(value = {"/edit","/edit.html"})
-    public String editControl(){
+    public String editControl(Model model){
+        model.addAttribute("scriptForm", new ScriptForm());
         return "edit";
     }
     @GetMapping(value = {"/myscripts","/myscripts.html"})

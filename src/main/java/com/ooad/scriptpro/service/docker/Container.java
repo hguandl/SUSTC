@@ -26,7 +26,6 @@ public class Container {
     private ScriptLang type;
     private String uuid;
     private String id;
-    private  IOFiles ioFiles = new IOFiles();
 
     private ContainerConfig config = null;
 
@@ -43,7 +42,7 @@ public class Container {
             directory.mkdirs();
         }
 
-        ioFiles.place(scriptId, type.getFilePath().replace("/data", "/tmp/" + this.uuid));
+        IOFiles.place(scriptId, type.getFilePath().replace("/data", "/tmp/" + this.uuid));
         String[] cmd = type.getCmd(args);
         String[] bind = {"/tmp/" + this.uuid + ":/data:rw"};
         config = new ContainerConfig("sustc-" + type.getName(), cmd, bind);
@@ -79,7 +78,7 @@ public class Container {
     }
 
     public String getResult(String filename) throws IOException {
-        return ioFiles.read("/tmp/" + this.uuid + "/" + filename);
+        return IOFiles.read("/tmp/" + this.uuid + "/" + filename);
     }
 
     public String getOutput() throws IOException {
