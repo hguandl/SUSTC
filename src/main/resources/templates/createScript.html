@@ -298,19 +298,20 @@
                             </div>
                             <div class="panel-body">
                                 <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post" enctype="multipart/form-data" >
-                                    <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">
+                                    <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:" required>
                                     <br>
-                                    <input type="text" class="form-control" th:field="*{type}" placeholder="Language:">
+                                    <input type="text" class="form-control" th:field="*{type}" placeholder="Language:" required>
                                     <br>
-                                    <textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:"></textarea>
+                                    <textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:" required></textarea>
                                     <br>
                                     <label class="custom-file m-b-2">
-                                        <input type="file" class="custom-file-input" th:field="*{file}">
-                                        <span class="custom-file-control form-control">Choose file...</span>
+                                        <input type="file" class="custom-file-input" th:field="*{file}" required>
+                                        <span class="custom-file-control form-control" id="fileName">Choose file...</span>
                                     </label>
                                     <br>
                                     <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
                                 </form>
+
 
                                 <br>
                                 <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
@@ -356,6 +357,14 @@
     document.getElementById("editorTextForm").onchange = function(evt) {
         document.getElementById("editorText").value = editor.getValue();
     }
+</script>
+
+<script>
+  $('input[type="file"]').change(function(e){
+    var fileName = e.target.files[0].name;
+    console.log(fileName);
+    document.getElementById("fileName").innerHTML = fileName;
+  });
 </script>
 
 <script>
