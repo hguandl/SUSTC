@@ -131,25 +131,6 @@
             <div class="col-md-4 text-xs-center text-md-left text-nowrap">
                 <h1><i class="page-header-icon ion-ios-paper"></i>Script Detail</h1>
             </div>
-
-            <hr class="page-wide-block visible-xs visible-sm">
-
-            <div class="col-xs-12 width-md-auto width-lg-auto width-xl-auto pull-md-right">
-                <a href="./edit.html" class="btn btn-primary btn-block"><span
-                        class="btn-label-icon left ion-plus-round"></span>Create
-                    project</a>
-            </div>
-
-            <!-- Spacer -->
-            <div class="m-b-2 visible-xs visible-sm clearfix"></div>
-
-            <form action="" class="page-header-form col-xs-12 col-md-4 pull-md-right">
-                <div class="input-group">
-                    <span class="input-group-addon b-a-0 font-size-16"><i class="ion-search"></i></span>
-                    <input type="text" placeholder="Search..." class="form-control p-l-0 b-a-0">
-                </div>
-            </form>
-
         </div>
     </div>
     <div class="col-lg-10 col-lg-offset-1">
@@ -190,11 +171,11 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td th:text="${script.name}">Guanhaodl</td>
+                                <td>Guanhaodl</td>
                                 <td>1.0.0</td>
                                 <td>99</td>
-                                <td>2018.10.08</td>
-                                <td>5.0</td>
+                                <td th:text="${script.createTime}">2018.10.08</td>
+                                <td th:text="${script.popularPoints}">5.0</td>
                                 <td>MIT</td>
                             </tr>
                             </tbody>
