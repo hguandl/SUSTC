@@ -160,6 +160,8 @@
         <div class="tab-content tab-content-bordered">
             <div class="tab-pane fade active in" id="tabs-home">
                 <div class="row">
+                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
+                          enctype="multipart/form-data">
                     <div class="col-md-9">
                         <div class="panel clearfix text-default" style="height: 600px">
                             <div id="editor">function foo(items) {
@@ -231,8 +233,6 @@
                                 <div class="panel-title">Basic Information</div>
                             </div>
                             <div class="panel-body">
-                                <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
-                                      enctype="multipart/form-data">
                                     <input type="text" class="form-control" required th:field="*{name}" placeholder="Script Name:">
                                     <br>
                                     <input type="text" class="form-control" required th:field="*{type}" placeholder="Language:">
@@ -242,11 +242,10 @@
                                     <br>
                                     <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
                                     <br>
-                                </form>
                             </div>
                         </div>
                     </div>
-
+                    </form>
                     <div class="panel col-md-12">
                         <div class="panel-body">
                             <br>
@@ -297,15 +296,15 @@
                                 <div class="panel-title">Basic Information</div>
                             </div>
                             <div class="panel-body">
-                                <form action="#" method="post" enctype="multipart/form-data">
-                                    <input type="text" class="form-control" placeholder="Script Name:">
+                                <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post" enctype="multipart/form-data" >
+                                    <input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">
                                     <br>
-                                    <input type="text" class="form-control" placeholder="Language:">
+                                    <input type="text" class="form-control" th:field="*{type}" placeholder="Language:">
                                     <br>
-                                    <textarea class="form-control" rows="4" placeholder="Description:"></textarea>
+                                    <textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:"></textarea>
                                     <br>
                                     <label class="custom-file m-b-2">
-                                        <input type="file" class="custom-file-input">
+                                        <input type="file" class="custom-file-input" th:field="*{file}">
                                         <span class="custom-file-control form-control">Choose file...</span>
                                     </label>
                                     <br>
