@@ -142,13 +142,10 @@
     </div>
     <div class="row">
 
-        <form action="#" th:action="@{'/updateScriptText'}" th:object="${scriptFormText}" method="post"
-
-              enctype="multipart/form-data" id="editorTextForm">
-            <input type="hidden" th:attr = "name='sid'" th:value = "${sid}"/>
+        <form action="#" id="editorTextForm">
             <div class="col-md-9">
                 <div class="panel clearfix text-default" style="height: 600px">
-                    <input name="hiddenCode" type="text" hidden id="editorText" required th:field="*{file}">
+                    <input name="hiddenCode" type="text" hidden id="editorText" required>
                     <div id="editor" th:text="${currentContent}">function foo(items) {
                         var x = "Hello World!";
                         return x;
@@ -223,9 +220,10 @@
                         <input type="text" class="form-control" required th:name = "type" th:id = "type" th:value="${currentScript.type.name}" />
 
                         <br>
-                        <textarea class="form-control" rows="4" required th:name = "description" th:id = "description" th:text="${currentScript.description}" ></textarea>
+                        <textarea id="formDescription" class="form-control" rows="4" required th:name = "description" th:id = "description" th:text="${currentScript.description}" ></textarea>
                         <br>
                         <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
+                        <!--<button type="button" onclick="updateScript()" class="btn btn-md btn-primary btn-block">UPLOAD</button>-->
                         <br>
                     </div>
                 </div>
@@ -241,6 +239,32 @@
     <br>
     <span class="text-muted">Copyright © 2018 PixelAdmin LLC. All rights reserved.</span>
 </footer>
+
+<script th:inline="javascript">
+    var form = document.getElementById("editorTextForm");
+    form.onsubmit = function(e) {
+        event.preventDefault();
+        updateScript();
+    }
+
+    function updateScript() {
+        var name = document.getElementById("name").value;
+        var type = document.getElementById("type").value;
+        var description = document.getElementById("description").value;
+        var content = editor.getValue();
+        var postData = {
+            "sid": [[${sid}]],
+            "name": name,
+            "type": type,
+            "description": description,
+            "file": content
+        };
+        $.post("/updateScriptText", postData, function (msg) {
+            alert(msg);
+            location.reload();
+        });
+    }
+</script>
 
 <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -55,79 +55,6 @@ public class ScriptController {
             return "redirect:/myscripts";
         }
     }
-
-    @PostMapping("/createScriptText")
-    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText,
-                                   HttpSession session){
-        System.out.println("call upload script controller");
-        Script script = new Script();
-        System.out.println(scriptFormText.getName());
-        script.setName(scriptFormText.getName());
-
-        script.setDescription(scriptFormText.getDescription());
-
-        System.out.println("type:"+scriptFormText.getType());
-        script.setType(typeService.findServiceByName(scriptFormText.getType()));
-        String scriptContent = scriptFormText.getFile();
-        if(scriptContent == null){
-            System.out.println("null");
-        }
-        try{
-            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-            script.setContent(clob);
-            User user = (User)session.getAttribute("user");
-            script.setAuthor(user.getUsername());
-            scriptService.save(script);
-            System.out.println("save success");
-            return "redirect:/myscripts";
-        }catch (Exception e){
-            return "redirect:/myscripts";
-        }
-    }
-    @PostMapping("/updateScriptText")
-    public String SubmitScriptText(@ModelAttribute(value="scriptFormText")ScriptFormText scriptFormText,
-                                   @RequestParam long sid){
-        System.out.println("call update script controller "+sid);
-
-        Script script = new Script();
-        script.setId(sid);
-        System.out.println(scriptFormText.getName());
-        script.setName(scriptFormText.getName());
-
-        script.setDescription(scriptFormText.getDescription());
-
-        System.out.println("type:"+scriptFormText.getType());
-        script.setType(typeService.findServiceByName(scriptFormText.getType()));
-        String scriptContent = scriptFormText.getFile();
-        if(scriptContent == null){
-            System.out.println("null");
-        }
-        try{
-            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-            script.setContent(clob);
-            script.setAuthor(scriptService.findById(sid).getAuthor());
-            scriptService.save(script);
-            System.out.println("save success");
-            return "redirect:/myscripts";
-        }catch (Exception e){
-            return "redirect:/myscripts";
-        }
-    }
-
-
-//    @PostMapping("/runScript/{id}/{type}")
-//    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun,
-//                            Model model){
-//
-//        System.out.println(id);
-//        System.out.println(typeName);
-//        System.out.println(scriptRun.getArgs_str());
-//        String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
-//        res = "test";
-//        System.out.println("output:" + res);
-//        model.addAttribute("result", res);
-//        return "redirect:/info";
-//    }
 }
 
 @RestController
@@ -142,8 +69,68 @@ class ScriptApi {
         System.out.println(typeName);
         System.out.println(scriptRun.getArgs_str());
         String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
-        res = "test";
         System.out.println("output:" + res);
         return res;
+    }
+
+    @Autowired
+    TypeService typeService;
+
+    @PostMapping("/updateScriptText")
+    public String SubmitScriptText(@RequestParam long sid,
+                                   @RequestParam String name,
+                                   @RequestParam String type,
+                                   @RequestParam String description,
+                                   @RequestParam String file) {
+        System.out.println("call update script controller "+sid);
+
+        Script script = scriptService.findById(sid);
+        script.setName(name);
+        script.setDescription(description);
+        script.setType(typeService.findServiceByName(type));
+        String scriptContent = file;
+        if(scriptContent == null){
+            System.out.println("null");
+        }
+        try{
+            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
+            script.setContent(clob);
+            script.setAuthor(scriptService.findById(sid).getAuthor());
+            scriptService.save(script);
+            return "Update successfully";
+        }catch (Exception e){
+            return "Failed";
+        }
+    }
+
+    @PostMapping("/createScriptText")
+    public String SubmitScriptText( @RequestParam String name,
+                                    @RequestParam String type,
+                                    @RequestParam String description,
+                                    @RequestParam String file,
+                                    HttpSession session) {
+        System.out.println("call upload script controller");
+        Script script = new Script();
+        System.out.println(name);
+        script.setName(name);
+
+        script.setDescription(description);
+
+        System.out.println("type:"+ type);
+        script.setType(typeService.findServiceByName(type));
+        String scriptContent = file;
+        if(scriptContent == null){
+            System.out.println("null");
+        }
+        try{
+            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
+            script.setContent(clob);
+            User user = (User)session.getAttribute("user");
+            script.setAuthor(user.getUsername());
+            scriptService.save(script);
+            return "save success";
+        }catch (Exception e){
+            return "failed";
+        }
     }
 }

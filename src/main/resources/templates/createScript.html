@@ -160,8 +160,7 @@
         <div class="tab-content tab-content-bordered">
             <div class="tab-pane fade active in" id="tabs-home">
                 <div class="row">
-                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
-                          enctype="multipart/form-data">
+                    <form action="#" th:action="@{/createScriptText}" id="createForm">
                     <div class="col-md-9">
                         <div class="panel clearfix text-default" style="height: 600px">
                             <div id="editor">function foo(items) {
@@ -233,11 +232,11 @@
                                 <div class="panel-title">Basic Information</div>
                             </div>
                             <div class="panel-body">
-                                    <input type="text" class="form-control" required th:field="*{name}" placeholder="Script Name:">
+                                    <input id="formName" type="text" class="form-control" required placeholder="Script Name:">
                                     <br>
-                                    <input type="text" class="form-control" required th:field="*{type}" placeholder="Language:">
+                                    <input id="formType" type="text" class="form-control" required placeholder="Language:">
                                     <br>
-                                    <textarea class="form-control" rows="4" required th:field="*{description}"
+                                    <textarea id="formDescription" class="form-control" rows="4" required
                                               placeholder="Description:"></textarea>
                                     <br>
                                     <button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>
@@ -341,6 +340,31 @@
     <br>
     <span class="text-muted">Copyright © 2018 PixelAdmin LLC. All rights reserved.</span>
 </footer>
+
+<script th:inline="javascript">
+    var form = document.getElementById("createForm");
+    form.onsubmit = function(e) {
+        event.preventDefault();
+        createScript();
+    }
+
+    function createScript() {
+        var name = document.getElementById("formName").value;
+        var type = document.getElementById("formType").value;
+        var description = document.getElementById("formDescription").value;
+        var content = editor.getValue();
+        var postData = {
+            "name": name,
+            "type": type,
+            "description": description,
+            "file": content
+        };
+        $.post("/createScriptText", postData, function (msg) {
+            alert(msg);
+            window.location.href = "/myscripts";
+        });
+    }
+</script>
 
 <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
