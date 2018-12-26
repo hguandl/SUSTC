@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -151,15 +151,31 @@
                 <div class="panel-title">
                     <i class="panel-title-icon ion-android-globe font-size-16 text-primary"></i> Search Results
                 </div>
-                <div class="col-md-12">
+
+                <div class="col-md-12" th:each="each:${scriptList}">
                     <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
+                        <hr size="6" width="100%" align="left" class="bg-warning"
+                            th:style="${each.type.type_id == 1 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-danger"
+                            th:style="${each.type.type_id == 2 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-info "
+                            th:style="${each.type.type_id == 3 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-primary "
+                            th:style="${each.type.type_id == 4 ? 'display:block' : 'display:none'}">
+                        <hr size="6" width="100%" align="left" class="bg-black "
+                            th:style="${each.type.type_id == 5 ? 'display:block' : 'display:none'}">
+
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 1</div>
+                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}" th:href="@{'/info?sid=' + ${each.id}}">
+                                    Script 1
+                                </a>
+
                                 <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+
+                                <div class="pull-xs-left" th:text="'Last updated: '+  ${each.createTime}">Lorem ipsum
+                                    dolor sit amet, consectetur adipiscing elit, sed
                                     do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </div>
 
@@ -167,70 +183,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-warning">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 2</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-info">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 3</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
+                <!--<div class="col-md-12">-->
+                    <!--<div class="box">-->
+                        <!--<hr size="6" width="100%" align="left" class="bg-danger">-->
+                        <!--<div class="box-row">-->
+                            <!--<div class="box-cell p-x-4 p-y-3">-->
+                                <!--&lt;!&ndash;<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>&ndash;&gt;-->
+                                <!--<div class="pull-xs-left font-weight-semibold font-size-24">Script 5</div>-->
+                                <!--<br><br>-->
+                                <!--<div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed-->
+                                    <!--do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+                                <!--</div>-->
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-black">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 4</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box">
-                        <hr size="6" width="100%" align="left" class="bg-danger">
-                        <div class="box-row">
-                            <div class="box-cell p-x-4 p-y-3">
-                                <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <div class="pull-xs-left font-weight-semibold font-size-24">Script 5</div>
-                                <br><br>
-                                <div class="pull-xs-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
         <!-- / Results -->

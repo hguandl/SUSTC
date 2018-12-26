@@ -135,10 +135,10 @@
             <!-- Spacer -->
             <div class="m-b-2 visible-xs visible-sm clearfix"></div>
 
-            <form action="" class="page-header-form col-xs-12 col-md-4 pull-md-right">
+            <form action="/search" method="post" class="page-header-form col-xs-12 col-md-4 pull-md-right">
                 <div class="input-group">
                     <span class="input-group-addon b-a-0 font-size-16"><i class="ion-search"></i></span>
-                    <input type="text" placeholder="Search..." class="form-control p-l-0 b-a-0">
+                    <input type="text" placeholder="Search..." class="form-control p-l-0 b-a-0" name="str">
                 </div>
             </form>
 
@@ -171,7 +171,8 @@
                         <div class="box-row">
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
-                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}" th:href="@{'/info?sid=' + ${each.id}}">
+                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}"
+                                   th:href="@{'/info?sid=' + ${each.id}}">
                                     Script 1
                                 </a>
 
@@ -186,7 +187,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -217,7 +217,8 @@
                             <div class="box-cell p-x-4 p-y-3">
                                 <!--<i class="box-bg-icon middle left font-size-52 ion-android-done"></i>-->
                                 <!--<div th:id="'ru' + ${each.id}" ></div>-->
-                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}" th:href="@{'/info?sid=' + ${each.id}}">
+                                <a class="pull-xs-left font-weight-semibold font-size-24" th:text="${each.name}"
+                                   th:href="@{'/info?sid=' + ${each.id}}">
                                     Script 1
                                 </a>
 
