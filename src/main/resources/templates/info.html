@@ -155,13 +155,13 @@
                 </li>
             </ul>
 
-            <div class="tab-content tab-content-bordered">
+            <div class="tab-content tab-content-bordered" >
                 <div class="tab-pane fade active in" id="tabs-home">
                     <div class="table-primary">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Auther</th>
+                                <th>Author</th>
                                 <th>Version</th>
                                 <th>Total Install</th>
                                 <th>Updated</th>
@@ -171,7 +171,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Guanhaodl</td>
+                                <td th:text="${script.author}">Guanhaodl</td>
                                 <td>1.0.0</td>
                                 <td>99</td>
                                 <td th:text="${script.createTime}">2018.10.08</td>
@@ -187,28 +187,37 @@
                             <div class="panel-title">Description</div>
                         </div>
                         <div class="panel-body">
-                            <p class="text-muted">
+                            <p class="text-muted" th:text="${script.description}">
                                 A block of help text that breaks onto a new line and may extend beyond one line.
                             </p>
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-lg btn-primary btn-block">RUN THIS SCRIPT</button>
+
+                    <form action="#" th:action="@{/runScript/}+${script.id}+'/'+${script.type.name}" th:object="${scriptRun}" method="post" >
 
                     <div class="col-md-12">
                         <br>
-                        <textarea class="form-control" rows="2" placeholder="Commandline Argument:"></textarea>
+                        <textarea class="form-control" rows="2" placeholder="Commandline Argument:" th:field="*{args_str}">unun</textarea>
                     </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">RUN</button>
+                    </form>
+
                     <br>
                     <div class="col-md-12">
                         <br>
-                        <textarea readonly class="form-control" rows="2"></textarea>
+                        <textarea readonly class="form-control" rows="2" th:text="${result}"></textarea>
                     </div>
+                    <br>
+
                 </div>
+
                 <div class="tab-pane fade" id="tabs-profile">
                     <div class="col-md-12">
                         <div class="panel clearfix text-default" style="height: 600px">
-                            <div id="editor">function foo(items) {
+                            <div id="editor" th:text="${script.content}">function foo(items) {
                                 var x = "Hello World!";
                                 return x;
                                 }
