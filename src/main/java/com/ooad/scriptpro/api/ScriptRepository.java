@@ -14,4 +14,5 @@ public interface ScriptRepository extends JpaRepository<Script, Long>{
     List<Script> findAllByOrderByPopularPointsDesc(Pageable pageable);
     List<Script> findAllByOrderByUpdateTimeDesc(Pageable pageable);
     List<Script> findAllByNameLike(String str);
+    List<Script> findScriptsByAuthor(String author);
 }

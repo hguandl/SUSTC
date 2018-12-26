@@ -1,5 +1,6 @@
 package com.ooad.scriptpro.service;
 
+import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.api.UserRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
@@ -15,6 +16,8 @@ import java.util.Set;
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ScriptRepository scriptRepository;
 
     @Override
     public User getUserByName(String username) {
@@ -45,6 +48,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<Script> getUserScripts(User user) {
-        return new ArrayList<>(user.getScripts());
+
+        return new ArrayList<>(scriptRepository.findScriptsByAuthor(user.getUsername()));
     }
 }
