@@ -26,10 +26,10 @@ public class MainController {
         model.addAttribute("scriptForm", new ScriptForm());
         return "edit";
     }
-    @GetMapping(value = {"/uploadscript","/uploadscript.html"})
-    public String uploadControl(){
-        return "uploadscript";
-    }
+//    @GetMapping(value = {"/uploadscript","/uploadscript.html"})
+//    public String uploadControl(){
+//        return "uploadscript";
+//    }
 
     @GetMapping(value = {"/search","/search.html"})
     public String searchControl(){
