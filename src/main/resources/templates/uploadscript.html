@@ -129,26 +129,29 @@
 
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
 
 
             <!--<div class="panel">-->
-            <!--<div class="panel-heading">-->
-            <!--<div class="panel-title">Basic Information</div>-->
-            <!--</div>-->
-            <!--<div class="panel-body">-->
-            <!--<form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post" enctype="multipart/form-data" >-->
-            <!--<input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">-->
-            <!--<br>-->
-            <!--<input type="text" class="form-control" th:field="*{type}" placeholder="Language:">-->
-            <!--<br>-->
-            <!--<textarea class="form-control" rows="4" th:field="*{description}" placeholder="Description:"></textarea>-->
-            <!--<br>-->
-            <!--<input type="file" class="form-control" th:field="*{file}" name="file">-->
-            <!--<button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>-->
-            <!--</form>-->
-            <!--</div>-->
+                <!--<div class="panel-heading">-->
+                    <!--<div class="panel-title">Basic Information</div>-->
+                <!--</div>-->
+                <!--<div class="panel-body">-->
+                    <!--<form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"-->
+                          <!--enctype="multipart/form-data">-->
+                        <!--<input type="text" class="form-control" th:field="*{name}" placeholder="Script Name:">-->
+                        <!--<br>-->
+                        <!--<input type="text" class="form-control" th:field="*{type}" placeholder="Language:">-->
+                        <!--<br>-->
+                        <!--<textarea class="form-control" rows="4" th:field="*{description}"-->
+                                  <!--placeholder="Description:"></textarea>-->
+                        <!--<br>-->
+                        <!--<input type="file" class="form-control" th:field="*{file}" name="file">-->
+                        <!--<button type="submit" class="btn btn-md btn-primary btn-block">UPLOAD</button>-->
+                    <!--</form>-->
+                <!--</div>-->
             <!--</div>-->
 
             <div class="panel">
@@ -156,15 +159,16 @@
                     <div class="panel-title">Basic Information</div>
                 </div>
                 <div class="panel-body">
-                    <form action="#" method="post" enctype="multipart/form-data">
-                        <input type="text" class="form-control" placeholder="Script Name:">
+                    <form action="#" th:action="@{/createScript}" th:object="${scriptForm}" method="post"
+                          enctype="multipart/form-data">
+                        <input type="text" class="form-control" placeholder="Script Name:" th:field="*{name}">
                         <br>
-                        <input type="text" class="form-control" placeholder="Language:">
+                        <input type="text" class="form-control" placeholder="Language:" th:field="*{type}">
                         <br>
-                        <textarea class="form-control" rows="4" placeholder="Description:"></textarea>
+                        <textarea class="form-control" rows="4" placeholder="Description:" th:field="*{description}></textarea>
                         <br>
                         <label class="custom-file m-b-2">
-                            <input type="file" class="custom-file-input">
+                            <input type="file" class="custom-file-input" th:field="*{file}" name="file">
                             <span class="custom-file-control form-control">Choose file...</span>
                         </label>
                         <br>
@@ -190,6 +194,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <footer class="px-footer px-footer-bottom p-t-0">
