@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="scriptpro" />
         <module name="SUSTC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="scriptpro" target="1.7" />
       <module name="SUSTC" target="1.7" />
     </bytecodeTargetLevel>
   </component>
