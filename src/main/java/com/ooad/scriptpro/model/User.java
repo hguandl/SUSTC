@@ -38,7 +38,8 @@ public class User {
     @JsonBackReference
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE
+            CascadeType.MERGE,
+            CascadeType.ALL
     })
     @JoinTable(name="script_user",
             joinColumns = @JoinColumn(name="user_id"),
