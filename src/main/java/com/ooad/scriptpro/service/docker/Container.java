@@ -14,6 +14,7 @@ import java.util.UUID;
 
 import com.ooad.scriptpro.util.Http;
 import com.ooad.scriptpro.util.IOFiles;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
@@ -21,15 +22,15 @@ public class Container {
     private static Gson gson = new Gson();
     private static Http http = new Http();
 
-    private static final String apiPrefix = <API>;
-
+    private static String apiPrefix;
     private ScriptLang type;
     private String uuid;
     private String id;
 
     private ContainerConfig config = null;
 
-    public Container(ScriptLang type, int scriptId, String[] args) throws IOException, SQLException {
+    public Container(String apiPrefix, ScriptLang type, int scriptId, String[] args) throws IOException, SQLException {
+        Container.apiPrefix = apiPrefix;
         this.type = type;
         this.init(scriptId, args);
     }
@@ -93,22 +94,6 @@ public class Container {
         System.out.println("cleanup");
         try {
             http.post(apiPrefix + "prune", null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            Container container = new Container(ScriptLang.JAVASCRIPT, 10086, args);
-            container.execCreateContainer();
-            int ret = container.execRunContainer();
-            if (ret == 0) {
-//				System.out.println(container.getResult("output.txt"));
-                System.out.println(container.getOutput());
-            } else {
-                System.out.println("err");
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

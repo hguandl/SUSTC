@@ -28,5 +28,5 @@ public interface ScriptService {
     List<Script> vagueSearch(String query);
 
     String getScriptContentById(long id) throws IOException, SQLException;
-    ContainerRun run(String typename, int id, String args_str);
+    ContainerRun run(String apiPrefix, String typename, int id, String args_str);
 }

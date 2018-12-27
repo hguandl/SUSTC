@@ -54,7 +54,7 @@ public class UserController {
             System.out.println("fail");
             model.addAttribute("message","Invalid Credential");
 
-            return "/login";
+            return "login";
         }
 
     }
@@ -103,7 +103,7 @@ public class UserController {
             System.out.println("fail");
             e.printStackTrace();
             model.addAttribute("message","User already exists!");
-            return "/signup";
+            return "signup";
         }
         /*
         if(signupService.signupUser(user)){

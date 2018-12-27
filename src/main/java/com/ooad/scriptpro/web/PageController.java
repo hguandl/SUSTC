@@ -31,6 +31,6 @@ public class PageController {
         model.addAttribute("user",user);
         model.addAttribute("topScripts",topScripts);
         model.addAttribute("recentScripts",recentScripts);
-        return "/userHome";
+        return "userHome";
     }
 }

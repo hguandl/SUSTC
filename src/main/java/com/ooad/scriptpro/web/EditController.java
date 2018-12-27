@@ -49,6 +49,6 @@ public class EditController {
         model.addAttribute("currentScript",currentScript);
         System.out.println(currentScript.getName());
         System.out.println(currentScript.getDescription());
-        return "/edit";
+        return "edit";
     }
 }

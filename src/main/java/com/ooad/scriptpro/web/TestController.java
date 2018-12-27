@@ -9,6 +9,7 @@ import com.ooad.scriptpro.service.docker.DockerLog;
 import com.ooad.scriptpro.service.docker.config.ScriptLang;
 import com.ooad.scriptpro.web.utils.TypeAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import com.ooad.scriptpro.model.User;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,9 @@ public class TestController {
 
     @Autowired
     FileService fileService;
+
+    @Value("${sustc.docker.api-prefix}")
+    String apiPrefix;
 
     @PostMapping("/findusers")
     public void getUsers(@RequestParam String scriptName){
@@ -59,7 +63,7 @@ public class TestController {
         ScriptLang scriptLang = typeAdapter.toScriptLang(typename);
         String args[] = {};
         try{
-            Container container = new Container(scriptLang, id, args);
+            Container container = new Container(apiPrefix, scriptLang, id, args);
             container.execCreateContainer();
             int ret = container.execRunContainer();
 

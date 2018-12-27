@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.ooad</groupId>
 	<artifactId>scriptpro</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>scriptpro</name>
-	<description>Demo project for Spring Boot</description>
+	<version>1.0.0-RELEASE</version>
+	<name>SUSTC</name>
+	<description>SUSTech User Script Tools Center</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -80,6 +80,16 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

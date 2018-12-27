@@ -29,7 +29,7 @@ public class UserScriptController {
         System.out.println("Read user scripts");
         model.addAttribute("userScripts", userScripts);
         model.addAttribute("user",user);
-        return "/myscripts";
+        return "myscripts";
     }
 
     @GetMapping(value = "/myscripts/delete")

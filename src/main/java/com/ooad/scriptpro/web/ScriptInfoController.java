@@ -37,6 +37,6 @@ public class ScriptInfoController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "/info";
+        return "info";
     }
 }

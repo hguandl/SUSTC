@@ -26,6 +26,6 @@ public class SearchController {
         List<Script> scriptList = scriptService.vagueSearch(str);
         model.addAttribute("scriptList", scriptList);
         model.addAttribute("user",user);
-        return "/search";
+        return "search";
     }
 }
