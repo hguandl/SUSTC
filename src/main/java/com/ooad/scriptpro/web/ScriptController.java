@@ -63,12 +63,13 @@ class ScriptApi {
     ScriptService scriptService;
 
     @PostMapping("/runScript/{id}/{type}")
-    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName, @ModelAttribute(value = "scriptRun")ScriptRun scriptRun) {
+    public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName,
+                            @RequestParam String args) {
 
         System.out.println(id);
         System.out.println(typeName);
-        System.out.println(scriptRun.getArgs_str());
-        String res = scriptService.run(typeName, id, scriptRun.getArgs_str());
+        System.out.println(args);
+        String res = scriptService.run(typeName, id, args);
         System.out.println("output:" + res);
         return res;
     }

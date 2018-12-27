@@ -217,11 +217,12 @@
 
                     <script th:inline="javascript">
                         function runScript() {
-                            var scriptRun = [[${scriptRun}]];
-                            scriptRun.args_str = document.getElementById("runArgs").innerText;
+                            var postData = {
+                                "args": document.getElementById("runArgs").value
+                            };
                             var id = [[${script.id}]];
                             var type = [[${script.type.name}]];
-                            var run = $.post("/runScript/" + id + "/" + type, scriptRun, function(result) {
+                            $.post("/runScript/" + id + "/" + type, postData, function(result) {
                                 document.getElementById("runResult").innerText = result;
                             });
                         }
