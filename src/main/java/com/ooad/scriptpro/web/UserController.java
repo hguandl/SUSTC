@@ -90,6 +90,7 @@ public class UserController {
         user.setPassword(password);
         user.setMail(email);
         user.setPhone("13423");
+        model.addAttribute("user", user);
         //user.setNickname("sdfsf");
         System.out.println(" sign up user, username: "+user.getUsername()+"  password: "+user.getPassword());
         try{
