@@ -62,6 +62,14 @@ class ScriptApi {
     @Autowired
     ScriptService scriptService;
 
+    @PostMapping("/thumbUp/{id}")
+    public String thumbUp(@PathVariable int id) {
+        Script script = scriptService.findById(id);
+        script.setPopularPoints(script.getPopularPoints() + 1);
+        scriptService.save(script);
+        return "Thanks for your support!";
+    }
+
     @PostMapping("/runScript/{id}/{type}")
     public String runScript(@PathVariable int id, @PathVariable(name = "type") String typeName,
                             @RequestParam String args) {

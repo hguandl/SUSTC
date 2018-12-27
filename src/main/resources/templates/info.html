@@ -182,7 +182,7 @@
               <tr>
                 <td th:text="${script.author}">Guanhaodl</td>
                 <td>1.0.0</td>
-                <td>99</td>
+                <td th:text="${script.runTime}">0</td>
                 <td th:text="${script.createTime}">2018.10.08</td>
                 <td th:text="${script.popularPoints}">5.0</td>
                 <td>MIT</td>
@@ -213,11 +213,12 @@
                 <textarea id="runResult" readonly class="form-control" rows="2"
                           th:text="${result}"></textarea>
                 <br>
-                <!--<button type="submit" class="btn btn-success btn-outline" style="width: 100px">Run</button>-->
                 <button type="button" onclick="runScript()" class="btn btn-success btn-outline"
                         style="width: 100px">Run
                 </button>
                 &emsp;&emsp;&emsp;
+                <button type="button" onclick="thumbUp()" class="btn btn-primary btn-outline"
+                        style="width: 100px"> <i class="fa fa-thumbs-o-up"></i>
                 </button>
                 &emsp;&emsp;&emsp;
                 <button type="button" data-toggle="collapse" data-target="#collapseExample"
@@ -250,6 +251,13 @@
               $.post("/runScript/" + id + "/" + type, postData, function (result) {
                 document.getElementById("runResult").innerText = result;
               });
+            }
+            function thumbUp() {
+                var id = [[${script.id}]];
+                $.post("/thumbUp/" + id, function (result) {
+                    alert(result);
+                    location.reload();
+                });
             }
           </script>
 
