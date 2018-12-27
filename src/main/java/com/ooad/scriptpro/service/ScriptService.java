@@ -3,6 +3,7 @@ package com.ooad.scriptpro.service;
 import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
+import com.ooad.scriptpro.service.docker.ContainerRun;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
@@ -27,5 +28,5 @@ public interface ScriptService {
     List<Script> vagueSearch(String query);
 
     String getScriptContentById(long id) throws IOException, SQLException;
-    String run(String typename, int id, String args_str);
+    ContainerRun run(String typename, int id, String args_str);
 }

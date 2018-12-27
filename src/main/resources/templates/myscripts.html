@@ -166,7 +166,7 @@
                             <br>
                             <button type="button" class="btn btn-outline" style="width: 80px" th:onclick="'javascript:window.location.href=\'/edit?sid=' + ${each.id} + '\'' ">Edit</button>
                             <br><br>
-                            <button type="button" class="btn btn-danger btn-outline" style="width: 80px" th:onclick="'javascript:window.location.href=\'/myscripts/delete?sid=' + ${each.id} + '\'' ">Delete</button>
+                            <button type="button" class="btn btn-danger btn-outline" style="width: 80px" th:onclick="'javascript: deleteScript(' + ${each.id} + ')'">Delete</button>
                             <br><br>
                         </div>
                     </div>
@@ -177,6 +177,15 @@
     </div>
 
 </div>
+
+<script th:inline="javascript">
+    function deleteScript(id) {
+        if (confirm("Are you sure to delete?") === true) {
+            delUrl = "/myscripts/delete?sid=" + id;
+            window.location.href = delUrl;
+        }
+    }
+</script>
 
 <footer class="px-footer px-footer-bottom p-t-0">
     <br>

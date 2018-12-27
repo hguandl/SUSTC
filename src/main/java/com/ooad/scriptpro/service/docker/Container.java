@@ -82,7 +82,11 @@ public class Container {
     }
 
     public String getOutput() throws IOException {
-        return (new DockerLog(http.get(logUrl(this.id)))).toString();
+        return (new DockerLog(http.get(logUrl(this.id)))).getStdOut();
+    }
+
+    public String getError() throws IOException {
+        return (new DockerLog(http.get(logUrl(this.id)))).getStdErr();
     }
 
     private static void prune() {

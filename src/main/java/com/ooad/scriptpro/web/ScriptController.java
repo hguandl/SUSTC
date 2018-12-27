@@ -4,6 +4,7 @@ import com.ooad.scriptpro.model.*;
 import com.ooad.scriptpro.service.FileService;
 import com.ooad.scriptpro.service.ScriptService;
 import com.ooad.scriptpro.service.TypeService;
+import com.ooad.scriptpro.service.docker.ContainerRun;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -77,12 +78,12 @@ class ScriptApi {
         System.out.println(id);
         System.out.println(typeName);
         System.out.println(args);
-        String res = scriptService.run(typeName, id, args);
+        ContainerRun res = scriptService.run(typeName, id, args);
         Script script = scriptService.findById(id);
         script.setRunTime(script.getRunTime() + 1);
-        System.out.println("output:" + res);
+//        System.out.println("output:" + res.getOutput());
         scriptService.save(script);
-        return res;
+        return res.getOutput();
     }
 
     @Autowired

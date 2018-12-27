@@ -250,6 +250,9 @@
               var type = [[${script.type.name}]];
               $.post("/runScript/" + id + "/" + type, postData, function (result) {
                 document.getElementById("runResult").innerText = result;
+                if (result === null || result === "") {
+                    alert("No output. Please check the script.");
+                }
               });
             }
             function thumbUp() {

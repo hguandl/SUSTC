@@ -4,6 +4,7 @@ import com.ooad.scriptpro.api.ScriptRepository;
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.docker.Container;
+import com.ooad.scriptpro.service.docker.ContainerRun;
 import com.ooad.scriptpro.service.docker.config.ScriptLang;
 import com.ooad.scriptpro.web.utils.TypeAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,7 +109,7 @@ public class ScriptServiceImpl implements ScriptService {
         return sb.toString();
     }
 
-    public String run(String typename, int id, String args_str){
+    public ContainerRun run(String typename, int id, String args_str){
         TypeAdapter typeAdapter = new TypeAdapter();
         ScriptLang scriptLang = typeAdapter.toScriptLang(typename);
         String args[] =  args_str.split(" ");
@@ -116,15 +117,20 @@ public class ScriptServiceImpl implements ScriptService {
             Container container = new Container(scriptLang, id, args);
             container.execCreateContainer();
             int ret = container.execRunContainer();
+            ContainerRun containerRun = new ContainerRun();
 
             if (ret == 0) {
-                return container.getOutput();
+                containerRun.setRet(0);
+                containerRun.setOutput(container.getOutput());
+                return containerRun;
             } else {
-                return container.getOutput();
+                containerRun.setRet(1);
+                containerRun.setOutput(container.getError());
+                return containerRun;
             }
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
-            return "err";
         }
+        return null;
     }
 }
