@@ -73,6 +73,7 @@ class ScriptApi {
         Script script = scriptService.findById(id);
         script.setRunTime(script.getRunTime() + 1);
         System.out.println("output:" + res);
+        scriptService.save(script);
         return res;
     }
 
