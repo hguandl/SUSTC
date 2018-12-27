@@ -2,11 +2,14 @@ package com.ooad.scriptpro.web;
 
 import com.ooad.scriptpro.model.ScriptForm;
 import com.ooad.scriptpro.model.ScriptFormText;
+import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -19,7 +22,10 @@ public class MainController {
     }
 
     @GetMapping(value = {"/createScript","/createScript.html"})
-    public String editControl(Model model){
+    public String editControl(Model model,
+                              HttpSession session){
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("user",user);
         model.addAttribute("scriptForm", new ScriptForm());
         model.addAttribute("scriptFormText", new ScriptFormText());
         return "createScript";
