@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="scriptpro" target="1.7" />
-      <module name="SUSTC" target="1.7" />
+      <module name="scriptpro" target="1.8" />
+      <module name="SUSTC" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -5,6 +5,9 @@ import com.ooad.scriptpro.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 @Service
 public class SignupService {
     @Autowired
@@ -16,9 +19,14 @@ public class SignupService {
         try{
             User _user = userRepository.findUserByUsername(user.getUsername());
             if(_user == null){
+                PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
+                String originalPassword = user.getPassword();
+                String hashedPassword = passwordAuthentication.hash(originalPassword.toCharArray());
+                user.setPassword(hashedPassword);
                 userRepository.save(user);
                 setMessage("sign up success");
                 return true;
+
             }
             else{
                 setMessage("please use another username");

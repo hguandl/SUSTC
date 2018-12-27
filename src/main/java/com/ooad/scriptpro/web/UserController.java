@@ -93,7 +93,7 @@ public class UserController {
         //user.setNickname("sdfsf");
         System.out.println(" sign up user, username: "+user.getUsername()+"  password: "+user.getPassword());
         try{
-            userDao.save(user);
+            signupService.signupUser(user);
             System.out.println("success");
             httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, userName);
             httpSession.setAttribute("user",userDao.findUserByUsername(userName));

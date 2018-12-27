@@ -38,6 +38,9 @@ public class Script {
     @Column(name="description")
     private String description;
 
+    @Column(name="run_time", nullable = false, columnDefinition = "INT default 0")
+    private int runTime;
+
     @Column(name="popular_points", nullable = false, columnDefinition = "INT default 0")
     private int popularPoints;
 

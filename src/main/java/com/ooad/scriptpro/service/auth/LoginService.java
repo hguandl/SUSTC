@@ -11,7 +11,11 @@ public class LoginService {
     private UserRepository userRepository;
 
     public boolean verifyLogin(User user){
-        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()) != null;
+        PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
+        User db_user = userRepository.findUserByUsername(user.getUsername());
+        String token = db_user.getPassword();
+        String password = user.getPassword();
+        return passwordAuthentication.authenticate(password.toCharArray(), token);
     }
 
 }
