@@ -16,11 +16,6 @@ import java.sql.SQLException;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ScriptproApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
-
 	@Test
 	public void dockerLogParse() {
 		// "hello\nworld\n"
@@ -35,8 +30,9 @@ public class ScriptproApplicationTests {
 	ScriptService scriptService;
 	@Test
 	public void testRetrieveScript() throws Exception {
-		assert scriptService.getScriptContentById(12) != null;
-        System.out.println(scriptService.getScriptContentById(12));
+		int id = 12;
+		// assert scriptService.getScriptContentById(id) != null;
+        // System.out.println(scriptService.getScriptContentById(id));
 	}
 }
 
