@@ -120,12 +120,12 @@
 
           <fieldset class="page-signup-form-group form-group form-group-lg">
             <div class="page-signup-icon text-muted"><i class="ion-asterisk"></i></div>
-            <input type="password" pattern="[a-zA-Z]{6,}" title="Minimum 6 characters" required class="page-signup-form-control form-control" placeholder="Password" name = "password">
+            <input type="password" minlength="6" maxlength="16" required class="page-signup-form-control form-control" placeholder="Password" name = "password">
             <!--<small class="text-muted">Minimum 6 characters</small>-->
           </fieldset>
 
           <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" required>
             <span class="custom-control-indicator"></span>
             I agree with the <a href="#" target="_blank">Terms and Conditions</a>
           </label>
