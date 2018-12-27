@@ -29,9 +29,10 @@ public class EditController {
                                    Model model,
                                    HttpSession session,
                                    @RequestParam long sid){
-
+        User user = (User)session.getAttribute("user");
         Script currentScript = scriptService.findById(sid);
         model.addAttribute("sid",sid);
+        model.addAttribute("user",user);
         try {
             String s = scriptService.getScriptContentById((int)sid);
             model.addAttribute("currentContent",s);

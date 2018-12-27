@@ -2,6 +2,7 @@ package com.ooad.scriptpro.web;
 
 import com.ooad.scriptpro.model.Script;
 import com.ooad.scriptpro.model.ScriptRun;
+import com.ooad.scriptpro.model.User;
 import com.ooad.scriptpro.service.ScriptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +21,14 @@ public class ScriptInfoController {
     @GetMapping(value = "/info")
     @ModelAttribute
     public String scriptController(Model model,
-                                   HttpSession httpSession,
+                                   HttpSession session,
                                    @RequestParam long sid){
 //        System.out.println(sid);
         Script s = scriptService.findById(sid);
         model.addAttribute("sid",sid);
         ScriptRun scriptRun = new ScriptRun();
-
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("user",user);
         model.addAttribute("script", s);
         model.addAttribute("scriptRun", scriptRun);
         model.addAttribute("result", "");
