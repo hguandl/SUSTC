@@ -96,6 +96,7 @@ public class UserController {
             userDao.save(user);
             System.out.println("success");
             httpSession.setAttribute(WebSecurityConfig.SESSION_KEY, userName);
+            httpSession.setAttribute("user",userDao.findUserByUsername(userName));
             return "redirect:/userHome";
         } catch (Exception e){
             System.out.println("fail");
