@@ -11,18 +11,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.sql.Clob;
 
 @Controller
 public class ScriptController {
-    @Autowired
-    ScriptService scriptService;
+    private final ScriptService scriptService;
+
+    private final TypeService typeService;
+
+    private final FileService fileService;
 
     @Autowired
-    TypeService typeService;
-
-    @Autowired
-    FileService fileService;
+    public ScriptController(ScriptService scriptService, TypeService typeService, FileService fileService) {
+        this.scriptService = scriptService;
+        this.typeService = typeService;
+        this.fileService = fileService;
+    }
 
     @PostMapping("/createScript")
     public String SubmitScript(@ModelAttribute(value = "scriptForm") ScriptForm scriptForm,
@@ -40,8 +43,7 @@ public class ScriptController {
         }
         if(scriptContent != null){
             try{
-                Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-                script.setContent(clob);
+                script.setContent(scriptContent);
                 User user = (User)session.getAttribute("user");
                 script.setAuthor(user.getUsername());
                 scriptService.save(script);
@@ -61,11 +63,17 @@ public class ScriptController {
 
 @RestController
 class ScriptApi {
-    @Autowired
-    ScriptService scriptService;
+    private final ScriptService scriptService;
+    private final TypeService typeService;
 
     @Value("${sustc.docker.api-prefix}")
     String apiPrefix;
+
+    @Autowired
+    public ScriptApi(ScriptService scriptService, TypeService typeService) {
+        this.scriptService = scriptService;
+        this.typeService = typeService;
+    }
 
     @PostMapping("/thumbUp/{id}")
     public String thumbUp(@PathVariable int id) {
@@ -90,8 +98,6 @@ class ScriptApi {
         return res.getOutput();
     }
 
-    @Autowired
-    TypeService typeService;
 
     @PostMapping("/updateScriptText")
     public String SubmitScriptText(@RequestParam long sid,
@@ -105,13 +111,11 @@ class ScriptApi {
         script.setName(name);
         script.setDescription(description);
         script.setType(typeService.findServiceByName(type));
-        String scriptContent = file;
-        if(scriptContent == null){
+        if(file == null){
             System.out.println("null");
         }
         try{
-            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-            script.setContent(clob);
+            script.setContent(file);
             script.setAuthor(scriptService.findById(sid).getAuthor());
             scriptService.save(script);
             return "Update successfully";
@@ -135,18 +139,17 @@ class ScriptApi {
 
         System.out.println("type:"+ type);
         script.setType(typeService.findServiceByName(type));
-        String scriptContent = file;
-        if(scriptContent == null){
+        if(file == null){
             System.out.println("null");
         }
         try{
-            Clob clob = new javax.sql.rowset.serial.SerialClob(scriptContent.toCharArray());
-            script.setContent(clob);
+            script.setContent(file);
             User user = (User)session.getAttribute("user");
             script.setAuthor(user.getUsername());
             scriptService.save(script);
             return "save success";
         }catch (Exception e){
+            e.printStackTrace();
             return "failed";
         }
     }

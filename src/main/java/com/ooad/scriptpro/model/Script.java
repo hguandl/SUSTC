@@ -1,13 +1,10 @@
 package com.ooad.scriptpro.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.mysql.jdbc.Clob;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.type.BlobType;
-import org.hibernate.type.ClobType;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -47,8 +44,8 @@ public class Script {
     @Column(name="path")
     private int path;
 
-    @Column(name="content")
-    private java.sql.Clob content;
+    @Column(name="content", columnDefinition = "text")
+    private String content;
 
     @CreationTimestamp
     @Column(name="create_time", updatable = false)

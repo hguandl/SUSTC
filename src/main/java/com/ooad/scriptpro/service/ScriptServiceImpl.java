@@ -98,16 +98,7 @@ public class ScriptServiceImpl implements ScriptService {
     @Override
     public String getScriptContentById(long id) throws IOException, SQLException {
         Script script = findById(id);
-        BufferedReader br = new BufferedReader(script.getContent().getCharacterStream());
-        StringBuilder sb = new StringBuilder();
-        String line = br.readLine();
-        while (line != null) {
-            sb.append(line);
-            sb.append("\n");
-            line = br.readLine();
-        }
-        br.close();
-        return sb.toString();
+        return script.getContent();
     }
 
     public ContainerRun run(String apiPrefix, String typename, int id, String args_str) {

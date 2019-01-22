@@ -146,3 +146,5 @@ $RECYCLE.BIN/
 
 ### Custom
 .idea/modules.xml
+application.properties
+
